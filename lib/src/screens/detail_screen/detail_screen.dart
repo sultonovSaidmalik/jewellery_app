@@ -1,5 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'components/add_to_basket_button.dart';
+import 'components/animatedCircleContainer.dart';
+import 'components/back_button.dart';
+import 'components/favourite_share_buttons.dart';
+import 'components/ring_size_list_view_separated.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({super.key});
@@ -38,7 +43,8 @@ class _DetailScreenState extends State<DetailScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// PagesView Images
+          /// PageView Images
+
           Stack(
             children: [
               Stack(
@@ -72,82 +78,25 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        for (int i = 0; i < 3; i++)
-                          Padding(
-                            padding: const EdgeInsets.all(5),
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 500),
-                              height: 10,
-                              width: 10,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color:
-                                      index == i ? Colors.white : Colors.grey),
-                            ),
-                          ),
-                      ],
-                    ),
+
+                    /// Row with White and grey Circle AnimatedContainer in PageView
+
+                    child: AnimatedCircleContainerInPageView(index: index),
                   ),
                 ],
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CupertinoButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Icon(
-                      Icons.arrow_back_ios_new,
-                      color: Colors.white,
-                    ),
-                  ),
+                  /// Back button
+
+                  MyBackButton(),
                   Padding(
-                    padding: const EdgeInsets.only(top: 40, right: 20),
-                    child: Column(
-                      children: [
-                        CupertinoButton(
-                          onPressed: () {},
-                          padding: EdgeInsets.zero,
-                          child: Container(
-                            height: 35,
-                            width: 35,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.black,
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.all(10),
-                              child: Image(
-                                image:
-                                    AssetImage("assets/icons/ic_favourite.png"),
-                              ),
-                            ),
-                          ),
-                        ),
-                        CupertinoButton(
-                          onPressed: () {},
-                          padding: EdgeInsets.zero,
-                          child: Container(
-                            height: 35,
-                            width: 35,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.black,
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.all(10),
-                              child: Image(
-                                image: AssetImage("assets/icons/ic_share.png"),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    padding: EdgeInsets.only(top: 40, right: 20),
+
+                    /// Favourite and Share Buttons
+
+                    child: FavouriteShareButtons(),
                   )
                 ],
               )
@@ -161,6 +110,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 const Row(
                   children: [
                     /// Text Ring Name
+
                     Text(
                       '2,99 Carat Diamond\nRing',
                       style: TextStyle(
@@ -174,7 +124,9 @@ class _DetailScreenState extends State<DetailScreen> {
                   ],
                 ),
                 const SizedBox(height: 25),
+
                 /// Explanation Text
+
                 const Text(
                   'Explanation',
                   style: TextStyle(
@@ -186,7 +138,9 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                 ),
                 const SizedBox(height: 15),
+
                 /// Description
+
                 SizedBox(
                   width: MediaQuery.sizeOf(context).width,
                   height: 50,
@@ -205,7 +159,9 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                 ),
                 const SizedBox(height: 35),
+
                 /// Ring Size
+
                 Container(
                   width: MediaQuery.sizeOf(context).width,
                   height: 100,
@@ -234,46 +190,16 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                       Expanded(
                         child: GestureDetector(
-                          onTap: (){
-
-                          },
-                          child: ListView.separated(
-                            physics: const AlwaysScrollableScrollPhysics(),
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                width: 42,
-                                height: 42,
-                                decoration: ShapeDecoration(
-                                  color: const Color(0xFF202020),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5)),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    size[index].toString(),
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12,
-                                      fontFamily: 'SF Pro',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                            separatorBuilder: (context, index) {
-                              return const SizedBox(width: 20);
-                            },
-                            itemCount: size.length,
-                          ),
+                          onTap: () {},
+                          child: RingSizeListViewSeparated(size: size),
                         ),
                       ),
                     ],
                   ),
                 ),
-                /// Add to Basket Button
+
+                /// Row Add to Basket Button and Price Texts
+
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                   child: Row(
@@ -306,29 +232,10 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                       GestureDetector(
                         onTap: () {},
-                        child: Container(
-                          width: 220,
-                          height: 50,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFF202020),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              'Add to Basket',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 17,
-                                fontFamily: 'SF Pro',
-                                fontWeight: FontWeight.w800,
-                                height: 0,
-                              ),
-                            ),
-                          ),
-                        ),
+
+                        /// Add To Basket Button
+
+                        child: const AddToBasketButton(),
                       ),
                     ],
                   ),
