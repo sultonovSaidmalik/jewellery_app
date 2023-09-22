@@ -22,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
       body: PageView(
         controller: screenController,
         physics: const NeverScrollableScrollPhysics(),
-        children: const [FavouriteScreen(), HomeScreen(), CardScreen()],
+        children: const [FavouriteScreen(), HomeScreen(), CartScreen()],
       ),
 
       /// bottom

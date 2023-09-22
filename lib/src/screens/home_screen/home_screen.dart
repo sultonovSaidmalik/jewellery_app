@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                              ),
                            ),
                            Text(
-                             'Elite Diamond ',
+                             'Elite Diamonds',
                              style: TextStyle(
                                color: Color(0xFFF5F5F5),
                                fontSize: 60,

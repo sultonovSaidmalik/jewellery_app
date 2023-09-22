@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CardScreen extends StatelessWidget {
-  const CardScreen({super.key});
+import '../../common/text_style.dart';
+import 'components/confirm_cart_button_wiget.dart';
+
+class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +21,7 @@ class CardScreen extends StatelessWidget {
                   children: [
                     const Text(
                       'Cart',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontFamily: 'SF Pro',
-                        fontWeight: FontWeight.w700,
-                        height: 0,
-                      ),
+                      style: Styles.w700_25,
                     ),
                     GestureDetector(
                       onTap: () {},
@@ -40,13 +37,7 @@ class CardScreen extends StatelessWidget {
                         child: const Center(
                           child: Text(
                             'Clear Cart',
-                            style: TextStyle(
-                              color: Color(0xFFD9D9D9),
-                              fontSize: 13,
-                              fontFamily: 'SF Pro',
-                              fontWeight: FontWeight.w500,
-                              height: 0,
-                            ),
+                            style: Styles.w500,
                           ),
                         ),
                       ),
@@ -96,12 +87,7 @@ class CardScreen extends StatelessWidget {
                                       /// Uzuk name
                                       const Text(
                                         '2,99 Carat Diamond Ring',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15,
-                                          fontFamily: 'SF Pro',
-                                          fontWeight: FontWeight.w400,
-                                        ),
+                                        style: Styles.w400,
                                       ),
 
                                       /// Icon more
@@ -118,12 +104,7 @@ class CardScreen extends StatelessWidget {
                                   /// razmer
                                   const Text(
                                     'Boyut: 3.5',
-                                    style: TextStyle(
-                                      color: Color(0xFFD9D9D9),
-                                      fontSize: 10,
-                                      fontFamily: 'SF Pro',
-                                      fontWeight: FontWeight.w300,
-                                    ),
+                                    style: Styles.w300,
                                   ),
                                   const SizedBox(height: 15),
                                   Row(
@@ -172,14 +153,7 @@ class CardScreen extends StatelessWidget {
                                                   child: const Center(
                                                     child: Text(
                                                       '1',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 16,
-                                                        fontFamily: 'SF Pro',
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        height: 0,
-                                                      ),
+                                                      style: Styles.w700_16,
                                                     ),
                                                   ),
                                                 ),
@@ -201,12 +175,7 @@ class CardScreen extends StatelessWidget {
                                       const Text(
                                         '10.750 ₺',
                                         textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontFamily: 'SF Pro',
-                                          fontWeight: FontWeight.w700,
-                                        ),
+                                        style: Styles.w700_20,
                                       ),
                                     ],
                                   ),
@@ -234,7 +203,7 @@ class CardScreen extends StatelessWidget {
                   itemCount: 2,
                 ),
               ),
-              Padding(
+               Padding(
                 padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -244,52 +213,16 @@ class CardScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Total',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontFamily: 'SF Pro',
-                            fontWeight: FontWeight.w400,
-                            height: 0,
-                          ),
+                          style: Styles.w400,
                         ),
                         Text(
                           '10.750 ₺',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 19,
-                            fontFamily: 'SF Pro',
-                            fontWeight: FontWeight.w700,
-                            height: 0,
-                          ),
+                          style: Styles.w700
                         )
                       ],
                     ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        width: 220,
-                        height: 50,
-                        decoration: const BoxDecoration(
-                          color: Color(0xFF202020),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Confirm Cart',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 17,
-                              fontFamily: 'SF Pro',
-                              fontWeight: FontWeight.w800,
-                              height: 0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    /// Confirm Cart Button
+                    ConfirmCartButton(onTap: (){},),
                   ],
                 ),
               ),
