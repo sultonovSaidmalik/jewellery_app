@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'product_description.dart';
-import 'widgets_photos.dart';
 
-class FavouriteProductWidgets extends StatelessWidget {
-  const FavouriteProductWidgets({super.key});
+import 'producr_description.dart';
+import 'widget_photo_jewellery.dart';
+class ListViewCartProduct extends StatelessWidget {
+  const ListViewCartProduct({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 15,
+    return  Expanded(
+      flex: 12,
       child: ListView.separated(
         itemBuilder: (context, index) {
           return GestureDetector(
@@ -16,10 +16,10 @@ class FavouriteProductWidgets extends StatelessWidget {
             child: const Row(
               children: [
                 /// Photo Jewellery
-                WidgetsPhotos(),
+                WidgetPhotoJewellery(),
 
                 /// Description
-                WidgetsProductDescription(),
+                ProductDescription(),
               ],
             ),
           );
@@ -37,7 +37,7 @@ class FavouriteProductWidgets extends StatelessWidget {
             ],
           );
         },
-        itemCount: 10,
+        itemCount: 2,
       ),
     );
   }

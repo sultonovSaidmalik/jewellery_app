@@ -15,8 +15,11 @@ class FavouriteScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              /// appBar Text
               AppBarTextWidgets(),
               SizedBox(height: 15),
+
+              /// Favourite Product Widget
               FavouriteProductWidgets(),
             ],
           ),
