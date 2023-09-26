@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/src/repository/auth_repository.dart';
 
@@ -11,7 +10,7 @@ class SignUpScree extends StatefulWidget {
 
 class _SignUpScreeState extends State<SignUpScree> {
   AuthRepositoryImpl repositoryImpl =
-      AuthRepositoryImpl(auth: FirebaseAuth.instance);
+      AuthRepositoryImpl();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -31,7 +30,9 @@ class _SignUpScreeState extends State<SignUpScree> {
               controller: passwordController,
               decoration: const InputDecoration(hintText: "Password"),
             ),
-            TextButton(onPressed: () {}, child: Text("Go")),
+            TextButton(onPressed: () {
+              repositoryImpl.emailPasswordRegister(emailController.text, passwordController.text);
+            }, child: Text("Go")),
             IconButton(onPressed: () {
               repositoryImpl.googleAuth();
             }, icon: const Icon(Icons.network_wifi))
