@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>827027670946-ri8kesn92r02jh47ti6bje7b5rc11b57.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.827027670946-ri8kesn92r02jh47ti6bje7b5rc11b57</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBCShvbe4aqigXlq5Mgx0sziFqC_ICuThc</string>
 	<key>GCM_SENDER_ID</key>
@@ -26,5 +30,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:827027670946:ios:d7b5fd1f55b3506e3b14fb</string>
+	<key>DATABASE_URL</key>
+	<string>https://jewellery-604f7-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

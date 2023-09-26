@@ -25,7 +25,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '827027670946',
     projectId: 'jewellery-604f7',
     authDomain: 'jewellery-604f7.firebaseapp.com',
+    databaseURL: 'https://jewellery-604f7-default-rtdb.firebaseio.com',
     storageBucket: 'jewellery-604f7.appspot.com',
     measurementId: 'G-QENVQTDM1P',
   );
@@ -58,6 +62,7 @@ class DefaultFirebaseOptions {
     appId: '1:827027670946:android:b9e81d1d56b031653b14fb',
     messagingSenderId: '827027670946',
     projectId: 'jewellery-604f7',
+    databaseURL: 'https://jewellery-604f7-default-rtdb.firebaseio.com',
     storageBucket: 'jewellery-604f7.appspot.com',
   );
 
@@ -66,18 +71,9 @@ class DefaultFirebaseOptions {
     appId: '1:827027670946:ios:d7b5fd1f55b3506e3b14fb',
     messagingSenderId: '827027670946',
     projectId: 'jewellery-604f7',
+    databaseURL: 'https://jewellery-604f7-default-rtdb.firebaseio.com',
     storageBucket: 'jewellery-604f7.appspot.com',
     iosClientId: '827027670946-ri8kesn92r02jh47ti6bje7b5rc11b57.apps.googleusercontent.com',
     iosBundleId: 'com.example.jewelleryApp',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBCShvbe4aqigXlq5Mgx0sziFqC_ICuThc',
-    appId: '1:827027670946:ios:c590d07be60f95573b14fb',
-    messagingSenderId: '827027670946',
-    projectId: 'jewellery-604f7',
-    storageBucket: 'jewellery-604f7.appspot.com',
-    iosClientId: '827027670946-bhda8hdll49rf8aupbcuvktcmlihr4fd.apps.googleusercontent.com',
-    iosBundleId: 'com.example.jewelleryApp.RunnerTests',
   );
 }
