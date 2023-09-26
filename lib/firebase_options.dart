@@ -67,6 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '827027670946',
     projectId: 'jewellery-604f7',
     storageBucket: 'jewellery-604f7.appspot.com',
+    iosClientId: '827027670946-ri8kesn92r02jh47ti6bje7b5rc11b57.apps.googleusercontent.com',
     iosBundleId: 'com.example.jewelleryApp',
   );
 
@@ -76,6 +77,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '827027670946',
     projectId: 'jewellery-604f7',
     storageBucket: 'jewellery-604f7.appspot.com',
+    iosClientId: '827027670946-bhda8hdll49rf8aupbcuvktcmlihr4fd.apps.googleusercontent.com',
     iosBundleId: 'com.example.jewelleryApp.RunnerTests',
   );
 }

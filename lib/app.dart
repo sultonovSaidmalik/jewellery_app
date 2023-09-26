@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/screens/sign_up/sign_up.dart';
 import 'src/screens/main_screen/main_screen.dart';
 
 class JewelleryApp extends StatelessWidget {
@@ -11,7 +12,7 @@ class JewelleryApp extends StatelessWidget {
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
       themeMode: ThemeMode.light,
-      home: const MainScreen(),
+      home: const SignUpScree(),
     );
   }
 }
