@@ -12,7 +12,7 @@ class JewelleryApp extends StatelessWidget {
       theme: ThemeData.light(useMaterial3: true),
       darkTheme: ThemeData.dark(useMaterial3: true),
       themeMode: ThemeMode.light,
-      home: const SignUpScree(),
+      home: const MainScreen(),
     );
   }
 }

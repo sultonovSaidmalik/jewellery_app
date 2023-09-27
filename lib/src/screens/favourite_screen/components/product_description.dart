@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jewellery_app/src/common/text_style.dart';
+import 'package:jewellery_app/src/common/constants/text_style.dart';
 import 'button_add_to_basket.dart';
 class WidgetsProductDescription extends StatelessWidget {
   const WidgetsProductDescription({super.key});

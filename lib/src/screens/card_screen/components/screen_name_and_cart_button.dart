@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/text_style.dart';
+import '../../../common/constants/text_style.dart';
 class ScreenNameAndCartButton extends StatelessWidget {
   const ScreenNameAndCartButton({super.key});
 

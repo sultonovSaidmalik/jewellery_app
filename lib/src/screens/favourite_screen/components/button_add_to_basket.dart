@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jewellery_app/src/common/text_style.dart';
+import 'package:jewellery_app/src/common/constants/text_style.dart';
 class ButtonAddToBasket extends StatelessWidget {
   final void Function()? onTap;
   const ButtonAddToBasket({super.key , required this.onTap});

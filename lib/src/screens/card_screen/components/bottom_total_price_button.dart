@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/text_style.dart';
+import '../../../common/constants/text_style.dart';
 import 'confirm_cart_button_wiget.dart';
 class BottomTotalPrice extends StatelessWidget {
   const BottomTotalPrice({super.key});

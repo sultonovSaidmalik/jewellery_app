@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/text_style.dart';
+import '../../../common/constants/text_style.dart';
 class ConfirmCartButton extends StatelessWidget {
   final void Function()? onTap;
   const ConfirmCartButton({super.key , required this.onTap});

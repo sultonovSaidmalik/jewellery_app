@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/text_style.dart';
+import '../../../common/constants/text_style.dart';
 import 'add_to_cart.dart';
 class ProductDescription extends StatelessWidget {
   const ProductDescription({super.key});
