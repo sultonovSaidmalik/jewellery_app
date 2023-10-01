@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:jewellery_app/src/repository/auth_repository.dart';
+import 'package:jewellery_app/src/repository/auth_repository/sign_up/sign_up_repository.dart';
+import 'package:firebase_auth_platform_interface/firebase_auth_platform_interface.dart';
+import 'package:jewellery_app/src/repository/user_repository/user_repository.dart';
 
 class SignUpScree extends StatefulWidget {
   const SignUpScree({super.key});
@@ -9,8 +12,7 @@ class SignUpScree extends StatefulWidget {
 }
 
 class _SignUpScreeState extends State<SignUpScree> {
-  AuthRepositoryImpl repositoryImpl =
-      AuthRepositoryImpl();
+  SignUpRepository repositoryImpl = SignUpRepository();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -30,12 +32,24 @@ class _SignUpScreeState extends State<SignUpScree> {
               controller: passwordController,
               decoration: const InputDecoration(hintText: "Password"),
             ),
-            TextButton(onPressed: () {
-              repositoryImpl.emailPasswordRegister(emailController.text, passwordController.text);
-            }, child: Text("Go")),
-            IconButton(onPressed: () {
-              repositoryImpl.googleAuth();
-            }, icon: const Icon(Icons.network_wifi))
+            TextButton(
+              onPressed: () async {
+                await repositoryImpl.signUpWithEmail(
+                  email: emailController.text,
+                  password: passwordController.text,
+                  phone: '+998905668118',
+                  username: 'abduraimov',
+                );
+              },
+              child: const Text("Go"),
+            ),
+            IconButton(
+              onPressed: () async{
+                // UserRepositoryImpl().getUser("tLuMFbvsWzOyaU1syaaHXG86r1D3");
+                await repositoryImpl.googleAuth();
+              },
+              icon: const Icon(Icons.network_wifi),
+            ),
           ],
         ),
       ),

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class User {
   String? userId;
   String? userName;
@@ -27,10 +29,10 @@ class User {
       userPhone : json["userPhone"] as String,
       userEmail : json["userEmail"] as String,
       password : json["password"] as String,
-      updatedAt : json["updatedAt"] as DateTime,
-      createdAt : json["createdAt"] as DateTime,
-      orderHistories : json["orderHistories"] as List<String>,
-      favouriteProduct : json["favouriteProduct"] as List<String>,
+      updatedAt : DateTime.tryParse(json["updatedAt"] as String),
+      createdAt : DateTime.tryParse(json["createdAt"] as String) ,
+      orderHistories : List.from(jsonDecode(json["orderHistories"] as String)),
+      favouriteProduct : List.from(jsonDecode(json["favouriteProduct"] as String)),
   );
 
   Map<String, Object?> toJson() => {
@@ -39,10 +41,10 @@ class User {
     "userPhone" : userPhone,
     "userEmail" : userEmail,
     "password" : password,
-    "updatedAt" : updatedAt,
-    "createdAt" : createdAt,
-    "orderHistories" : orderHistories,
-    "favouriteProduct" : favouriteProduct,
+    "updatedAt" : updatedAt!.toIso8601String(),
+    "createdAt" : createdAt!.toIso8601String(),
+    "orderHistories" : jsonEncode(orderHistories),
+    "favouriteProduct" : jsonEncode(favouriteProduct),
   };
 
   @override

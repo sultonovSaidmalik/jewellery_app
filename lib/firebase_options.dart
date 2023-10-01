@@ -73,6 +73,7 @@ class DefaultFirebaseOptions {
     projectId: 'jewellery-604f7',
     databaseURL: 'https://jewellery-604f7-default-rtdb.firebaseio.com',
     storageBucket: 'jewellery-604f7.appspot.com',
+    androidClientId: '827027670946-322edtt4fqq8thcj2ai4q090thauputs.apps.googleusercontent.com',
     iosClientId: '827027670946-ri8kesn92r02jh47ti6bje7b5rc11b57.apps.googleusercontent.com',
     iosBundleId: 'com.example.jewelleryApp',
   );
