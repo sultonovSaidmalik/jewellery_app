@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'components/bottom_total_price_button.dart';
-import 'components/list_view_cart_product.dart';
-import 'components/screen_name_and_cart_button.dart';
+import 'view/bottom_total_price_button.dart';
+import 'view/list_view_cart_product.dart';
+import 'view/screen_name_and_cart_button.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});

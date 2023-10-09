@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'components/app_bar_text.dart';
-import 'components/favourite_widgets_list_view.dart';
+import 'view/app_bar_text.dart';
+import 'view/favourite_widgets_list_view.dart';
 
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});

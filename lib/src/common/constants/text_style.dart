@@ -73,4 +73,12 @@ class Styles {
     fontWeight: FontWeight.w500,
     height: 0,
   );
+
+  static const TextStyle w500_19 = TextStyle(
+    color: Colors.white,
+    fontSize: 19,
+    fontFamily: 'SF Pro',
+    fontWeight: FontWeight.w500,
+    height: 0,
+  );
 }
