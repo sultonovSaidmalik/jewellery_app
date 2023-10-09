@@ -32,6 +32,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       HomeGetCategoryProductEvent event, Emitter emit) async {
     if (event.category == "All") return add(const HomeGetAllDataEvent());
     emit(state.copyWith(status: HomeStatus.loading));
+    print(event.category);
     final products = await repository.getCategoryProduct(event.category);
     emit(state.copyWith(status: HomeStatus.successData, products: products));
   }

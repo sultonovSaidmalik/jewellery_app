@@ -2,8 +2,26 @@ import 'package:flutter/material.dart';
 
 import '../../../common/constants/text_style.dart';
 import 'add_to_cart.dart';
+
 class ProductDescription extends StatelessWidget {
-  const ProductDescription({super.key});
+  final String name;
+  final String description;
+  final num price;
+  final int count;
+  final void Function() increment;
+  final void Function() delete;
+  final void Function() decrement;
+
+  const ProductDescription({
+    super.key,
+    required this.name,
+    required this.description,
+    required this.price,
+    required this.count,
+    required this.increment,
+    required this.decrement,
+    required this.delete,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +33,19 @@ class ProductDescription extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 /// Uzuk name
-                const Text(
-                  '2,99 Carat Diamond Ring',
+                Text(
+                  name,
                   style: Styles.w400,
                 ),
 
                 /// Icon more
                 GestureDetector(
-                  onTap: () {},
+                  onTap: delete,
                   child: const Icon(
-                    Icons.more_vert,
+                    Icons.delete_outline,
                     color: Colors.white,
                   ),
                 ),
@@ -36,21 +53,24 @@ class ProductDescription extends StatelessWidget {
             ),
 
             /// razmer
-            const Text(
-              'Boyut: 3.5',
+            Text(
+              description,
               style: Styles.w300,
             ),
             const SizedBox(height: 15),
-             const Row(
-              mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 /// Add To Cart
-                AddToCart(),
+                AddToCart(
+                  increment: increment,
+                  decrement: decrement,
+                  count: count,
+                ),
 
                 /// Price
                 Text(
-                  '10.750 ₺',
+                  "$price so'm",
                   textAlign: TextAlign.right,
                   style: Styles.w700_20,
                 ),

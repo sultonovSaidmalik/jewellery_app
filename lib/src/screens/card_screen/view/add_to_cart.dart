@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 
 import 'product_count_button.dart';
+
 class AddToCart extends StatelessWidget {
-  const AddToCart({super.key});
+  final void Function() increment;
+  final void Function() decrement;
+  final int count;
+
+  const AddToCart({
+    super.key,
+    required this.increment,
+    required this.decrement,
+    required this.count,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      width: 100,
+    return Container(
       height: 35,
       decoration: BoxDecoration(
         color: const Color(0xFF121210),
@@ -19,8 +28,13 @@ class AddToCart extends StatelessWidget {
           color: const Color(0xFF7D7D7D),
         ),
       ),
+
       /// Product count button
-      child: const ProductCountButton(),
+      child: ProductCountButton(
+        increment: increment,
+        decrement: decrement,
+        count: count,
+      ),
     );
   }
 }

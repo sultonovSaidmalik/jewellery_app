@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jewellery_app/src/common/models/product_model.dart';
-import 'package:jewellery_app/src/screens/detail_screen/detail_screen.dart';
+import 'package:go_router/go_router.dart';
 import 'package:jewellery_app/src/screens/view/custom_indicator.dart';
 
 import 'bloc/home_bloc.dart';
@@ -136,7 +134,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemBuilder: (context, index) {
                             final product = state.products[index];
                             return ViewProduct(
-                              onPressed: () {},
+                              onPressed: () {
+                                context.push('/view', extra: product);
+                              },
                               product: product,
                             );
                           },

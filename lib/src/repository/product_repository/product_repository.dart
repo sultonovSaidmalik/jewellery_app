@@ -18,7 +18,6 @@ abstract interface class ProductRepository {
   Future<Map<String, List<Product>>> getWithCategory();
 
   Future<List<Product>> getCategoryProduct(String category);
-
 }
 
 class ProductRepositoryImpl extends ProductRepository {
@@ -47,10 +46,10 @@ class ProductRepositoryImpl extends ProductRepository {
 
   @override
   Future<List<Product>> getCategoryProduct(String category) async {
-    final data = await _storage.child(Folder.products.name).equalTo(category, key: "productType").get();
-    return data.children
-        .map((e) => Product.fromJson(jsonDecode(jsonEncode(e.value))))
-        .toList();
+    return (await getAllProduct())
+            ?.where((element) => element.productType == category)
+            .toList() ??
+        [];
   }
 
   @override

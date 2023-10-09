@@ -26,11 +26,7 @@ class ViewProduct extends StatelessWidget {
             children: [
               CupertinoButton(
                 padding: EdgeInsets.zero,
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const DetailScreen(),
-                  ));
-                },
+                onPressed: onPressed,
                 child: Container(
                   height: double.infinity,
                   width: double.infinity,

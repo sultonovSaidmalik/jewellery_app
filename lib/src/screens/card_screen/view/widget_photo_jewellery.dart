@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
 class WidgetPhotoJewellery extends StatelessWidget {
-  const WidgetPhotoJewellery({super.key});
+  final String imageUrl;
+
+  const WidgetPhotoJewellery({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +13,8 @@ class WidgetPhotoJewellery extends StatelessWidget {
         width: 100,
         height: 100,
         decoration: ShapeDecoration(
-          image: const DecorationImage(
-            image: AssetImage("assets/images/img.png"),
+          image: DecorationImage(
+            image: NetworkImage(imageUrl),
             fit: BoxFit.fill,
           ),
           shape: RoundedRectangleBorder(

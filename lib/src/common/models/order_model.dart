@@ -5,7 +5,7 @@ class Order {
   String? userId;
   String? userName;
   String? userPhone;
-  Cart? cart;
+  CartModel? cart;
   num? totalPrice;
 
   Order({
@@ -22,7 +22,7 @@ class Order {
       userId : json["userId"] as String,
       userName : json["userName"] as String,
       userPhone : json["userPhone"] as String,
-      cart : json["cart"] as Cart,
+      cart : CartModel.fromJson(json["cart"] as Map<String, Object?>),
       totalPrice : json["totalPrice"] as num,
   );
 
@@ -31,7 +31,7 @@ class Order {
     "userId" : userId,
     "userName" : userName,
     "userPhone" : userPhone,
-    "cart" : cart,
+    "cart" : cart!.toJson(),
     "totalPrice" : totalPrice,
   };
 
