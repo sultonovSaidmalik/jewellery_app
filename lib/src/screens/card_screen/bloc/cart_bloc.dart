@@ -58,6 +58,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     final result = _productDec(event.productId);
     if (result == null) {
       emit(state.copyWith(status: CartStatus.decrement, cart: cart));
+    } else if (result == "-") {
+      _deleteProduct(event.productId);
     } else {}
     await repository.saveCard(cart);
   }
@@ -86,7 +88,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         cart.items[i].productCount = (cart.items[i].productCount + 1);
         cart.items[i].totalPrice = (cart.items[i].totalPrice +
             (cart.items[i].product.productPrice ?? 0));
-        result = null;
+        return null;
       }
     }
     return result;
@@ -101,6 +103,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           cart.items[i].totalPrice = (cart.items[i].totalPrice -
               (cart.items[i].product.productPrice ?? 0));
           result = null;
+        } else {
+          return "-";
         }
       }
     }
