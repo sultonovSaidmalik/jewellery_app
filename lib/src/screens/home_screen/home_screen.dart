@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
 import 'package:jewellery_app/src/screens/view/custom_indicator.dart';
 
 import 'bloc/home_bloc.dart';
@@ -72,7 +73,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             const SizedBox(width: 8),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                context
+                                    .getInheritedWidgetOfExactType<MainScope>()!
+                                    .drawerController
+                                    .toggle!();
+                              },
                               child: const Image(
                                 image: AssetImage("assets/icons/ic_menu.png"),
                                 height: 25,

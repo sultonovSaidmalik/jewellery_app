@@ -23,5 +23,6 @@ class LocalDataService {
 
 enum BoxKeys {
   card,
+  favourites,
   auth,
 }

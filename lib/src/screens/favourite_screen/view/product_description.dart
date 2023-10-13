@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
+import 'package:jewellery_app/src/common/models/product_model.dart';
+import '../../../common/models/cart_item_model.dart';
+import '../../card_screen/bloc/cart_bloc.dart';
+import '../../detail_screen/view/add_button_inc_dec.dart';
+import '../bloc/favorite_bloc.dart';
 import 'button_add_to_basket.dart';
+
 class WidgetsProductDescription extends StatelessWidget {
-  const WidgetsProductDescription({super.key});
+  final Product product;
+
+  const WidgetsProductDescription({
+    super.key,
+    required this.product,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return  Expanded(
+    return Expanded(
       flex: 5,
       child: Padding(
         padding: const EdgeInsets.only(left: 15),
@@ -17,38 +29,76 @@ class WidgetsProductDescription extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 /// Uzuk name
-                 const Text(
-                   "2,99 Carat Diamond Ring",
-                   style: Styles.w400,
+                Text(
+                  product.productName ?? "",
+                  style: Styles.w400,
                 ),
+
                 /// Icon more
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    context.read<FavoriteBloc>().add(
+                          FavoriteDeleteEvent(
+                              productId: product.productId ?? ""),
+                        );
+                  },
                   child: const Icon(
-                    Icons.more_vert,
+                    Icons.delete_outline,
                     color: Colors.white,
                   ),
                 ),
               ],
             ),
 
-            /// razmer
-            const Text(
-              "Boyut: 3.5",
-               style: Styles.w300,
+            /// Description
+            Text(
+              product.productDescription ?? "",
+              style: Styles.w300,
             ),
             const SizedBox(height: 15),
-             Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 /// Price
-                const Text(
-                  "10.750 ₺",
+                Text(
+                  product.productPrice.toString(),
                   style: Styles.w700_20,
                 ),
 
-                /// Add To Basket
-                ButtonAddToBasket(onTap: (){},),
+                BlocBuilder<CartBloc, CartState>(
+                  builder: (context, state) {
+                    final cartItem = state.isProduct(product.productId ?? "");
+                    return Stack(
+                      children: [
+                        if (cartItem == null)
+                          ButtonAddToBasket(
+                            onTap: () {
+                              context.read<CartBloc>().add(CartAddProductEvent(
+                                  cartItem: CartItem(
+                                      id: product.productId ?? "",
+                                      product: product,
+                                      productCount: 1,
+                                      totalPrice: product.productPrice ?? 0)));
+                            },
+                          ),
+                        if (cartItem != null)
+                          AddToIncDec(
+                            increment: () {
+                              context.read<CartBloc>().add(
+                                  CartIncrementProductEvent(
+                                      productId: product.productId ?? ""));
+                            },
+                            decrement: () {
+                              context.read<CartBloc>().add(
+                                  CartDecrementProductEvent(
+                                      productId: product.productId ?? ""));
+                            },
+                            count: cartItem.productCount,
+                          ),
+                      ],
+                    );
+                  },
+                ),
               ],
             ),
           ],

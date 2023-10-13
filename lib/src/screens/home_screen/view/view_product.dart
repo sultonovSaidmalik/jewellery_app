@@ -1,6 +1,6 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/repository/favorite_repositor/favorite_repositor.dart';
 
 import '../../../common/models/product_model.dart';
 import '../../detail_screen/detail_screen.dart';
@@ -42,7 +42,11 @@ class ViewProduct extends StatelessWidget {
               Align(
                 alignment: const Alignment(.95, -.85),
                 child: CupertinoButton(
-                  onPressed: () {},
+                  onPressed: () async{
+                    await FavoriteRepositoryImpl()
+                        .addFavoriteProduct(product.productId ?? "");
+                    print(FavoriteRepositoryImpl().getFavourites());
+                  },
                   padding: EdgeInsets.zero,
                   child: Container(
                     height: 40,
