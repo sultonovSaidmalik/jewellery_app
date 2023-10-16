@@ -21,7 +21,7 @@ class WidgetsProductDescription extends StatelessWidget {
     return Expanded(
       flex: 5,
       child: Padding(
-        padding: const EdgeInsets.only(left: 15),
+        padding: const EdgeInsets.only(left: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -64,7 +64,6 @@ class WidgetsProductDescription extends StatelessWidget {
                   product.productPrice.toString(),
                   style: Styles.w700_20,
                 ),
-
                 BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) {
                     final cartItem = state.isProduct(product.productId ?? "");

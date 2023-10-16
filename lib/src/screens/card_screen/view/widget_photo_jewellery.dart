@@ -11,7 +11,7 @@ class WidgetPhotoJewellery extends StatelessWidget {
       flex: 2,
       child: Container(
         width: 100,
-        height: 100,
+        height: 110,
         decoration: ShapeDecoration(
           image: DecorationImage(
             image: NetworkImage(imageUrl),

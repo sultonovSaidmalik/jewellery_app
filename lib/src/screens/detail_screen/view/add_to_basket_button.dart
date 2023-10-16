@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AddToBasketButton extends StatelessWidget {
@@ -9,7 +8,7 @@ class AddToBasketButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 220,
+      width: 150,
       height: 50,
       decoration: const BoxDecoration(
         color: Color(0xFF202020),

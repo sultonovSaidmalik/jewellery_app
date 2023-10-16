@@ -64,7 +64,7 @@ class ProductCountButton extends StatelessWidget {
               icon: const Icon(
                 Icons.remove,
                 color: Colors.white,
-                size: 40,
+                size: 35,
               ),
             ),
             Container(
@@ -87,7 +87,7 @@ class ProductCountButton extends StatelessWidget {
               icon: const Icon(
                 Icons.add,
                 color: Colors.white,
-                size: 40,
+                size: 35,
 
               ),
             ),

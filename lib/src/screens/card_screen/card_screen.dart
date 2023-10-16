@@ -12,7 +12,7 @@ class CartScreen extends StatelessWidget {
       backgroundColor: Color(0xFF000000),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+          padding: EdgeInsets.only(left: 15, right: 15, top: 20),
           child: Column(
             children: [
               /// Screen name and Clear Cart Button

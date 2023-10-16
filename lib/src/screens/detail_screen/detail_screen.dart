@@ -75,15 +75,19 @@ class _DetailScreenState extends State<DetailScreen> with DetailMixin {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     /// Back button
-
-                    MyBackButton(),
+                    Padding(
+                      padding: EdgeInsets.only(top: 40, left: 10),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: MyBackButton(),
+                      ),
+                    ),
                     Padding(
                       padding: EdgeInsets.only(top: 40, right: 20),
 
                       /// Favourite and Share Buttons
-
                       child: FavouriteShareButtons(),
-                    )
+                    ),
                   ],
                 )
               ],

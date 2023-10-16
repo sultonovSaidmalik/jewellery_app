@@ -30,8 +30,8 @@ class ProductCountButton extends StatelessWidget {
               ),
             ),
             Container(
-              height: 26,
-              width: 26,
+              height: 20,
+              width: 20,
               decoration: const BoxDecoration(
                   shape: BoxShape.circle, color: Colors.black),
               child: Center(

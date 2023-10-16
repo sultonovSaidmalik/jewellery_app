@@ -17,7 +17,7 @@ class AddToCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 35,
+      height: 30,
       decoration: BoxDecoration(
         color: const Color(0xFF121210),
         borderRadius: const BorderRadius.all(

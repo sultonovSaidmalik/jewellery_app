@@ -28,7 +28,7 @@ class ProductDescription extends StatelessWidget {
     return Expanded(
       flex: 5,
       child: Padding(
-        padding: const EdgeInsets.only(left: 15),
+        padding: const EdgeInsets.only(left: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -52,12 +52,12 @@ class ProductDescription extends StatelessWidget {
               ],
             ),
 
-            /// razmer
+            /// Description
             Text(
               description,
               style: Styles.w300,
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -67,14 +67,14 @@ class ProductDescription extends StatelessWidget {
                   decrement: decrement,
                   count: count,
                 ),
-
-                /// Price
-                Text(
-                  "$price so'm",
-                  textAlign: TextAlign.right,
-                  style: Styles.w700_20,
-                ),
               ],
+            ),
+            const SizedBox(height: 5),
+            /// Price
+            Text(
+              "$price so'm",
+              textAlign: TextAlign.right,
+              style: Styles.w700_20,
             ),
           ],
         ),
