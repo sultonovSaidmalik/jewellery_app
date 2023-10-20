@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:jewellery_app/src/common/constants/text_style.dart';
 import 'package:jewellery_app/src/repository/product_repository/product_repository.dart';
 import 'package:jewellery_app/src/screens/card_screen/card_screen.dart';
 import 'package:jewellery_app/src/screens/favourite_screen/favourite_screen.dart';
@@ -10,6 +11,7 @@ import 'package:jewellery_app/src/screens/home_screen/home_screen.dart';
 import '../../common/service/service_locator.dart';
 import '../favourite_screen/bloc/favorite_bloc.dart';
 import '../home_screen/bloc/home_bloc.dart';
+import '../view/drawer_widget.dart';
 import 'bloc/main_bloc.dart';
 import 'view/custom_navigation_bar.dart';
 
@@ -28,6 +30,9 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return ZoomDrawer(
       controller: drawerController,
+      slideWidth: 300,
+      isRtl: true,
+      angle: 0.0,
       mainScreen: MainScope(
         drawerController: drawerController,
         child: Scaffold(
@@ -37,7 +42,8 @@ class _MainScreenState extends State<MainScreen> {
             physics: const NeverScrollableScrollPhysics(),
             children: [
               BlocProvider(
-                create: (context) => FavoriteBloc()..add(const FavoriteGetDataEvent()),
+                create: (context) =>
+                    FavoriteBloc()..add(const FavoriteGetDataEvent()),
                 child: const FavouriteScreen(),
               ),
               BlocProvider(
@@ -66,8 +72,15 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
-      menuScreen: Container(
-        color: Colors.red,
+      menuScreen: DrawerWidget(
+        languageOnTap: () {},
+        profileOnTap: () {},
+        deleteOnTap: () {},
+        logOutOnTap: () {},
+        languageText: "Language",
+        profileText: "Profile",
+        deleteText: "Delete Account",
+        logOutText: "Log Out",
       ),
     );
   }
