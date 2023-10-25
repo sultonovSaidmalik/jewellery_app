@@ -10,6 +10,12 @@ class Styles {
   fontWeight: FontWeight.w700,
   height: 0,
   );
+  static const TextStyle w700_30 = TextStyle(
+    color: Colors.white,
+    fontSize: 30,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w700,
+  );
 
   static const TextStyle w700_16 = TextStyle(
     color: Colors.white,
@@ -26,6 +32,13 @@ class Styles {
     fontFamily: _sf_pro,
     fontWeight: FontWeight.w400,
     height: 0,
+  );
+
+  static const TextStyle textStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 15,
+    fontFamily: _sf_pro,
+    fontWeight: FontWeight.w400,
   );
 
   static const TextStyle w800 = TextStyle(
@@ -79,6 +92,14 @@ class Styles {
     fontSize: 19,
     fontFamily: 'SF Pro',
     fontWeight: FontWeight.w500,
+    height: 0,
+  );
+
+  static const TextStyle w600_20 = TextStyle(
+    color: Colors.white,
+    fontSize: 20,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w600,
     height: 0,
   );
 }
