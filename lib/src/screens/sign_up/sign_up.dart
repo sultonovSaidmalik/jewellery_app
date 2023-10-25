@@ -42,7 +42,9 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                         ),
                       );
                     },
-                    backButton: () {},
+                    backButton: () {
+                      Navigator.pop(context);
+                    },
                   ),
                   Expanded(
                     flex: 8,
