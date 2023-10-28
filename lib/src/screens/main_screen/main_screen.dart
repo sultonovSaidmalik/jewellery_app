@@ -40,19 +40,10 @@ class _MainScreenState extends State<MainScreen> {
           body: PageView(
             controller: screenController,
             physics: const NeverScrollableScrollPhysics(),
-            children: [
-              BlocProvider(
-                create: (context) =>
-                    FavoriteBloc()..add(const FavoriteGetDataEvent()),
-                child: const FavouriteScreen(),
-              ),
-              BlocProvider(
-                create: (context) =>
-                    HomeBloc(repository: sl<ProductRepository>())
-                      ..add(const HomeGetAllDataEvent()),
-                child: const HomeScreen(),
-              ),
-              const CartScreen(),
+            children: const [
+              FavouriteScreen(),
+              HomeScreen(),
+              CartScreen(),
             ],
           ),
 

@@ -9,6 +9,7 @@ enum CartStatus {
   decrement,
   deletedSuccess,
   clearCart,
+  clearCartEmpty,
 }
 
 class CartState extends Equatable {

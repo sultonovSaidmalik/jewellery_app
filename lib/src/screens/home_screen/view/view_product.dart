@@ -44,29 +44,37 @@ class ViewProduct extends StatelessWidget {
               ),
               Align(
                 alignment: const Alignment(.95, -.85),
-                child: CupertinoButton(
-                  onPressed: () async {
-                    await FavoriteRepositoryImpl()
-                        .addFavoriteProduct(product.productId ?? "");
-                    print(FavoriteRepositoryImpl().getFavourites());
+                child: BlocBuilder<FavoriteBloc, FavoriteState>(
+                  builder: (context, state) {
+                    return CupertinoButton(
+                      onPressed: () async {
+                        context.read<FavoriteBloc>().add(FavoriteAddEvent(
+                            productId: product.productId ?? ''));
+                      },
+                      padding: EdgeInsets.zero,
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.black,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child:
+                              state.products.contains(product)
+                                  ? const Icon(
+                                      Icons.favorite,
+                                      color: Colors.white,
+                                    )
+                                  : const Icon(
+                                      Icons.favorite,
+                                      color: Colors.red,
+                                    ),
+                        ),
+                      ),
+                    );
                   },
-                  padding: EdgeInsets.zero,
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.black,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: true ? Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                      ) : Icon(Icons.favorite , color:  Colors.red,
-                            ),
-                    ),
-                  ),
                 ),
               ),
             ],

@@ -5,8 +5,19 @@ import 'bloc/favorite_bloc.dart';
 import 'view/app_bar_text.dart';
 import 'view/favourite_widgets_list_view.dart';
 
-class FavouriteScreen extends StatelessWidget {
+class FavouriteScreen extends StatefulWidget {
   const FavouriteScreen({super.key});
+
+  @override
+  State<FavouriteScreen> createState() => _FavouriteScreenState();
+}
+
+class _FavouriteScreenState extends State<FavouriteScreen> {
+  @override
+  void didChangeDependencies() {
+    context.read<FavoriteBloc>().add(const FavoriteGetDataEvent());
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
