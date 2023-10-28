@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jewellery_app/src/screens/card_screen/bloc/cart_bloc.dart';
 
 import '../../../common/constants/text_style.dart';
 class ScreenNameAndCartButton extends StatelessWidget {
@@ -16,7 +18,9 @@ class ScreenNameAndCartButton extends StatelessWidget {
           ),
           /// Button Clear Cart
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              context.read<CartBloc>().add(const CartClearEvent());
+            },
             child: Container(
               width: 100,
               height: 30,

@@ -19,3 +19,12 @@ class FavoriteDeleteEvent extends FavoriteEvent {
   @override
   List<Object?> get props => [productId];
 }
+
+class FavoriteAddEvent extends FavoriteEvent {
+  final String productId;
+
+  const FavoriteAddEvent({required this.productId});
+
+  @override
+  List<Object?> get props => [productId];
+}

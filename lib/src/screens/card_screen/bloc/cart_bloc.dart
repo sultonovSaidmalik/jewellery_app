@@ -75,6 +75,10 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   void _clearCart(CartClearEvent event, Emitter emit) async {
     emit(state.copyWith(status: CartStatus.loading));
+    if(cart.items.isEmpty) {
+      emit(state.copyWith(status: CartStatus.clearCartEmpty));
+      return;
+    }
     cart.items = [];
     emit(state.copyWith(status: CartStatus.clearCart, cart: cart));
     await repository.saveCard(cart);
