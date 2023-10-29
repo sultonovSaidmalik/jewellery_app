@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
-
+import 'package:jewellery_app/src/screens/sign_up/sign_up.dart';
 import '../../common/constants/text_style.dart';
 import '../sign_up/view/google_button.dart';
 import '../sign_up/view/text_field_password.dart';
 import '../sign_up/view/text_field_widget.dart';
 import 'view/sign_in_button.dart';
+import 'view/text_widget_sign_in.dart';
 
 part './mixin/sign_in_mixin.dart';
 
@@ -23,7 +24,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
       backgroundColor: const Color(0xFF000000),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+          padding: const EdgeInsets.only(right: 20, left: 20),
           child: SingleChildScrollView(
             child: SizedBox(
               width: MediaQuery.sizeOf(context).width,
@@ -127,7 +128,22 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
 
                           /// Button Sign In
                           SignInButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                print("Started1");
+                              }
+                            },
+                          ),
+                          /// Text Sign In
+                          TextWidgetSignIn(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SignUpScree(),
+                                ),
+                              );
+                            },
                           ),
                           const Spacer(flex: 3),
 
@@ -135,7 +151,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                           GoogleButton(
                             onTap: () {},
                           ),
-                          const Spacer(flex: 2),
+                          const Spacer(flex: 3),
                         ],
                       ),
                     ),

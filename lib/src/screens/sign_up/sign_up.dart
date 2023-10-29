@@ -6,7 +6,7 @@ import 'view/get_started_button.dart';
 import 'view/google_button.dart';
 import 'view/text_field_password.dart';
 import 'view/text_field_widget.dart';
-import 'view/text_widget.dart';
+import 'view/text_widget_sign_up.dart';
 
 part './mixin/signi_up_mixin.dart';
 
@@ -24,7 +24,7 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
       backgroundColor: const Color(0xFF000000),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+          padding: const EdgeInsets.only(right: 20, left: 20),
           child: SingleChildScrollView(
             child: SizedBox(
               width: MediaQuery.sizeOf(context).width,
@@ -128,14 +128,16 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                           GetStartedButton(
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                print("Started");
+                                print("Started1");
+                              } else if (_formPhone.currentState!.validate()) {
+                                print("Started2");
                               }
                             },
                           ),
                           const Spacer(),
 
                           /// Text Sign In
-                          TextWidget(
+                          TextWidgetSignUp(
                             onTap: () {
                               Navigator.push(
                                 context,
@@ -149,8 +151,13 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
 
                           /// Google Button
                           GoogleButton(
-                            onTap: () {},
+                            onTap: () {
+                              if (_formPhone.currentState!.validate()) {
+                                print("Started2");
+                              }
+                            },
                           ),
+                          const Spacer(flex: 2),
                         ],
                       ),
                     ),

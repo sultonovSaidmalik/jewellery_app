@@ -2,9 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/constants/text_style.dart';
-class TextWidget extends StatelessWidget {
+class TextWidgetSignIn extends StatelessWidget {
   final void Function() onTap;
-  const TextWidget({super.key, required this.onTap});
+  const TextWidgetSignIn({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class TextWidget extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: 'Already have an account?',
+              text: "Don't have an account?",
               style: Styles.textStyle.copyWith(
                 color: Colors.white
                     .withOpacity(0.699999988079071),
@@ -26,7 +26,7 @@ class TextWidget extends StatelessWidget {
             TextSpan(
               recognizer: TapGestureRecognizer()
                 ..onTap = onTap,
-              text: 'Sign in',
+              text: 'Sign up',
               style: Styles.textStyle.copyWith(
                 fontWeight: FontWeight.w600,
               ),
