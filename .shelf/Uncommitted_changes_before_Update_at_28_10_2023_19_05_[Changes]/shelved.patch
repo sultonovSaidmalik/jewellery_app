@@ -1,0 +1,261 @@
+Index: lib/src/screens/sign_in/view/sign_in_button.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/cupertino.dart';\r\nimport '../../../common/constants/text_style.dart';\r\nclass SignInButton extends StatelessWidget {\r\n  final void Function()? onPressed;\r\n  const SignInButton({super.key, required this.onPressed});\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return CupertinoButton(\r\n      onPressed: onPressed,\r\n      child: SizedBox(\r\n        width: MediaQuery.sizeOf(context).width,\r\n        height: MediaQuery.sizeOf(context).height * 0.07,\r\n        child: const DecoratedBox(\r\n          decoration: BoxDecoration(\r\n            color: Color(0xFF313131),\r\n            borderRadius: BorderRadius.all(\r\n              Radius.circular(30),\r\n            ),\r\n          ),\r\n          child: Center(\r\n            child: Text(\r\n              'Sign-In',\r\n              textAlign: TextAlign.center,\r\n              style: Styles.w600_20,\r\n            ),\r\n          ),\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/src/screens/sign_in/view/sign_in_button.dart b/lib/src/screens/sign_in/view/sign_in_button.dart
+--- a/lib/src/screens/sign_in/view/sign_in_button.dart	(revision 0ac5fa33ec7d1d4ca13ec882e726db961977c42b)
++++ b/lib/src/screens/sign_in/view/sign_in_button.dart	(date 1698500072833)
+@@ -20,7 +20,7 @@
+           ),
+           child: Center(
+             child: Text(
+-              'Sign-In',
++              'Sign In',
+               textAlign: TextAlign.center,
+               style: Styles.w600_20,
+             ),
+Index: lib/src/screens/sign_up/view/text_widget.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/src/screens/sign_up/view/text_widget.dart b/lib/src/screens/sign_in/view/text_widget_sign_in.dart
+rename from lib/src/screens/sign_up/view/text_widget.dart
+rename to lib/src/screens/sign_in/view/text_widget_sign_in.dart
+--- a/lib/src/screens/sign_up/view/text_widget.dart	(revision 0ac5fa33ec7d1d4ca13ec882e726db961977c42b)
++++ b/lib/src/screens/sign_in/view/text_widget_sign_in.dart	(date 1698500297054)
+@@ -13,7 +13,7 @@
+         TextSpan(
+           children: [
+             TextSpan(
+-              text: 'Already have an account?',
++              text: 'Do you have a not account?',
+               style: Styles.textStyle.copyWith(
+                 color: Colors.white
+                     .withOpacity(0.699999988079071),
+@@ -26,7 +26,7 @@
+             TextSpan(
+               recognizer: TapGestureRecognizer()
+                 ..onTap = onTap,
+-              text: 'Sign in',
++              text: 'Sign Up',
+               style: Styles.textStyle.copyWith(
+                 fontWeight: FontWeight.w600,
+               ),
+Index: lib/src/screens/sign_up/view/get_started_button.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/cupertino.dart';\r\nimport '../../../common/constants/text_style.dart';\r\nclass GetStartedButton extends StatelessWidget {\r\n  final void Function()? onPressed;\r\n  const GetStartedButton({super.key, required this.onPressed});\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return CupertinoButton(\r\n      onPressed: onPressed,\r\n      child: SizedBox(\r\n        width: MediaQuery.sizeOf(context).width,\r\n        height: MediaQuery.sizeOf(context).height * 0.07,\r\n        child: const DecoratedBox(\r\n          decoration: BoxDecoration(\r\n            color: Color(0xFF313131),\r\n            borderRadius: BorderRadius.all(\r\n              Radius.circular(30),\r\n            ),\r\n          ),\r\n          child: Center(\r\n            child: Text(\r\n              'Get started',\r\n              textAlign: TextAlign.center,\r\n              style: Styles.w600_20,\r\n            ),\r\n          ),\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/src/screens/sign_up/view/get_started_button.dart b/lib/src/screens/sign_up/view/get_started_button.dart
+--- a/lib/src/screens/sign_up/view/get_started_button.dart	(revision 0ac5fa33ec7d1d4ca13ec882e726db961977c42b)
++++ b/lib/src/screens/sign_up/view/get_started_button.dart	(date 1698500034980)
+@@ -20,7 +20,7 @@
+           ),
+           child: Center(
+             child: Text(
+-              'Get started',
++              'Sign Up',
+               textAlign: TextAlign.center,
+               style: Styles.w600_20,
+             ),
+Index: lib/src/common/constants/app_router.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:go_router/go_router.dart';\r\nimport 'package:jewellery_app/src/common/models/product_model.dart';\r\nimport 'package:jewellery_app/src/screens/main_screen/main_screen.dart';\r\nimport 'package:jewellery_app/src/screens/sign_in/sign_in.dart';\r\nimport 'package:jewellery_app/src/screens/sign_up/sign_up.dart';\r\nimport '../../screens/detail_screen/detail_screen.dart';\r\n\r\nclass AppRouter {\r\n  const AppRouter._();\r\n\r\n  static final router = GoRouter(\r\n    routes: [\r\n      GoRoute(\r\n        path: '/',\r\n        name: 'main',\r\n        builder: (context, state) {\r\n          return const SignInScreen();\r\n        },\r\n        routes: [\r\n          GoRoute(\r\n            path: 'view',\r\n            builder: (context, state) {\r\n              if (state.extra is! Product) {\r\n                throw GoException(\"Detail Screen Product Not Found\");\r\n              }\r\n              final product = state.extra as Product;\r\n              return DetailScreen(\r\n                product: product,\r\n              );\r\n            },\r\n          ),\r\n        ],\r\n      ),\r\n    ],\r\n  );\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/src/common/constants/app_router.dart b/lib/src/common/constants/app_router.dart
+--- a/lib/src/common/constants/app_router.dart	(revision 0ac5fa33ec7d1d4ca13ec882e726db961977c42b)
++++ b/lib/src/common/constants/app_router.dart	(date 1698499415079)
+@@ -14,7 +14,7 @@
+         path: '/',
+         name: 'main',
+         builder: (context, state) {
+-          return const SignInScreen();
++          return const SignUpScreen();
+         },
+         routes: [
+           GoRoute(
+Index: lib/src/screens/sign_up/mixin/signi_up_mixin.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>part of '../sign_up.dart';\r\n\r\nmixin SignUpMixin on State<SignUpScree> {\r\n\r\n  ValueNotifier<bool> isObscure = ValueNotifier(false);\r\n\r\n  late TextEditingController controllerName ;\r\n  late TextEditingController controllerEmail ;\r\n  late TextEditingController controllerPassword ;\r\n  late TextEditingController controllerCPassword ;\r\n  late TextEditingController controllerPhone ;\r\n\r\n  @override\r\n  void initState() {\r\n    controllerName = TextEditingController();\r\n    controllerEmail = TextEditingController();\r\n    controllerPassword = TextEditingController();\r\n    controllerCPassword = TextEditingController();\r\n    controllerPhone = TextEditingController();\r\n    super.initState();\r\n  }\r\n\r\n  final _formKey = GlobalKey<FormState>();\r\n  final _formPhone = GlobalKey<FormState>();\r\n  bool passwordSee = true;\r\n  bool password = true;\r\n\r\n  String? validateEmail(String? value) {\r\n    RegExp regex = RegExp(r'^[\\w-]+(\\.[\\w-]+)*@gmail.com$');\r\n    if (value != null && value.isEmpty) {\r\n      return \"Write your email\";\r\n    }else if(!regex.hasMatch(value!)){\r\n      return \"Invalid Email\" ;\r\n    }\r\n    return null;\r\n  }\r\n\r\n  String? validateName(String? value) {\r\n    if (value != null && value.isEmpty) {\r\n      return \"Write your name\";\r\n    }\r\n    return null;\r\n  }\r\n\r\n  String? validatePassword(String? value) {\r\n    if (value != null && value.isEmpty) {\r\n      return \"Write your password\";\r\n    } else if(value!.length < 8){\r\n      return \"Password must be at least 8 characters\";\r\n    }\r\n    return null;\r\n  }\r\n\r\n  String? validateCPassword(String? value) {\r\n    if (value != null && value.isEmpty) {\r\n      return \"Write your confirm password\";\r\n    } else if(controllerPassword.text != controllerCPassword.text){\r\n      return \"your password does not match\";\r\n    }\r\n    return null;\r\n  }\r\n\r\n  String? validatePhone(String? value) {\r\n    RegExp regex = RegExp(r'(^\\+998\\d{9})');\r\n    if (value != null && value.isEmpty) {\r\n      return \"Write your phone\";\r\n    }else if(!regex.hasMatch(value!)){\r\n      return \"Invalid phone number\";\r\n    }\r\n    return null;\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/src/screens/sign_up/mixin/signi_up_mixin.dart b/lib/src/screens/sign_up/mixin/signi_up_mixin.dart
+--- a/lib/src/screens/sign_up/mixin/signi_up_mixin.dart	(revision 0ac5fa33ec7d1d4ca13ec882e726db961977c42b)
++++ b/lib/src/screens/sign_up/mixin/signi_up_mixin.dart	(date 1698499415088)
+@@ -1,6 +1,6 @@
+ part of '../sign_up.dart';
+ 
+-mixin SignUpMixin on State<SignUpScree> {
++mixin SignUpMixin on State<SignUpScreen> {
+ 
+   ValueNotifier<bool> isObscure = ValueNotifier(false);
+ 
+Index: lib/src/screens/sign_in/sign_in.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\r\nimport 'package:jewellery_app/src/screens/main_screen/main_screen.dart';\r\n\r\nimport '../../common/constants/text_style.dart';\r\nimport '../sign_up/view/google_button.dart';\r\nimport '../sign_up/view/text_field_password.dart';\r\nimport '../sign_up/view/text_field_widget.dart';\r\nimport 'view/sign_in_button.dart';\r\n\r\npart './mixin/sign_in_mixin.dart';\r\n\r\nclass SignInScreen extends StatefulWidget {\r\n  const SignInScreen({super.key});\r\n\r\n  @override\r\n  State<SignInScreen> createState() => _SignInScreenState();\r\n}\r\n\r\nclass _SignInScreenState extends State<SignInScreen> with SignInMixin {\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Scaffold(\r\n      backgroundColor: const Color(0xFF000000),\r\n      body: SafeArea(\r\n        child: Padding(\r\n          padding: const EdgeInsets.only(top: 20, right: 20, left: 20),\r\n          child: SingleChildScrollView(\r\n            child: SizedBox(\r\n              width: MediaQuery.sizeOf(context).width,\r\n              height: MediaQuery.sizeOf(context).height * 0.92,\r\n              child: Column(\r\n                crossAxisAlignment: CrossAxisAlignment.start,\r\n                children: [\r\n                  Expanded(\r\n                    flex: 3,\r\n                    child: Column(\r\n                      mainAxisAlignment: MainAxisAlignment.spaceAround,\r\n                      crossAxisAlignment: CrossAxisAlignment.start,\r\n                      children: [\r\n                        Row(\r\n                          mainAxisAlignment: MainAxisAlignment.spaceBetween,\r\n                          children: [\r\n                            /// Back Button\r\n                            GestureDetector(\r\n                              onTap: () {\r\n                                Navigator.pop(context);\r\n                              },\r\n                              child: const SizedBox(\r\n                                width: 46,\r\n                                height: 46,\r\n                                child: DecoratedBox(\r\n                                  decoration: BoxDecoration(\r\n                                      color: Color(0xFF333B48),\r\n                                      shape: BoxShape.circle),\r\n                                  child: Icon(\r\n                                    Icons.arrow_back,\r\n                                    color: Colors.white,\r\n                                  ),\r\n                                ),\r\n                              ),\r\n                            ),\r\n\r\n                            /// Skip Button\r\n                            TextButton(\r\n                              onPressed: () {\r\n                                Navigator.push(\r\n                                  context,\r\n                                  MaterialPageRoute(\r\n                                    builder: (context) => const MainScreen(),\r\n                                  ),\r\n                                );\r\n                              },\r\n                              child: const Text(\r\n                                \"Skip\",\r\n                                style: Styles.w400,\r\n                              ),\r\n                            ),\r\n                          ],\r\n                        ),\r\n                        const Spacer(),\r\n\r\n                        /// Text\r\n                        const Text(\r\n                          'Log-in',\r\n                          style: Styles.w700_30,\r\n                        ),\r\n                        const Spacer(),\r\n                      ],\r\n                    ),\r\n                  ),\r\n                  Expanded(\r\n                    flex: 8,\r\n                    child: Form(\r\n                      key: _formKey,\r\n                      child: Column(\r\n                        children: [\r\n                          const Spacer(),\r\n\r\n                          /// User Email\r\n                          TextFieldWidgets(\r\n                            controller: controllerEmail,\r\n                            validator: validateEmail,\r\n                            textInputAction: TextInputAction.next,\r\n                            hintText: 'you@exaple.com',\r\n                          ),\r\n                          const Spacer(),\r\n\r\n                          /// User Password\r\n                          TextFieldPassword(\r\n                            controller: controllerPassword,\r\n                            validator: validatePassword,\r\n                            textInputAction: TextInputAction.next,\r\n                            hintText: 'Password',\r\n                            obscureText: password,\r\n                            onTap: () {\r\n                              password = !password;\r\n                              setState(() {});\r\n                            },\r\n                            widget: Icon(\r\n                              password\r\n                                  ? Icons.visibility\r\n                                  : Icons.visibility_off,\r\n                              color: Colors.grey,\r\n                            ),\r\n                          ),\r\n                          const Spacer(flex: 3),\r\n\r\n                          /// Button Sign In\r\n                          SignInButton(\r\n                            onPressed: () {},\r\n                          ),\r\n                          const Spacer(flex: 3),\r\n\r\n                          /// Google Button\r\n                          GoogleButton(\r\n                            onTap: () {},\r\n                          ),\r\n                          const Spacer(flex: 2),\r\n                        ],\r\n                      ),\r\n                    ),\r\n                  ),\r\n                ],\r\n              ),\r\n            ),\r\n          ),\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/src/screens/sign_in/sign_in.dart b/lib/src/screens/sign_in/sign_in.dart
+--- a/lib/src/screens/sign_in/sign_in.dart	(revision 0ac5fa33ec7d1d4ca13ec882e726db961977c42b)
++++ b/lib/src/screens/sign_in/sign_in.dart	(date 1698500326091)
+@@ -2,10 +2,12 @@
+ import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
+ 
+ import '../../common/constants/text_style.dart';
++import '../sign_up/sign_up.dart';
+ import '../sign_up/view/google_button.dart';
+ import '../sign_up/view/text_field_password.dart';
+ import '../sign_up/view/text_field_widget.dart';
+ import 'view/sign_in_button.dart';
++import 'view/text_widget_sign_in.dart';
+ 
+ part './mixin/sign_in_mixin.dart';
+ 
+@@ -129,6 +131,17 @@
+                           SignInButton(
+                             onPressed: () {},
+                           ),
++                          /// Text Sign In
++                          TextWidget(
++                            onTap: () {
++                              Navigator.push(
++                                context,
++                                MaterialPageRoute(
++                                  builder: (context) => const SignUpScreen(),
++                                ),
++                              );
++                            },
++                          ),
+                           const Spacer(flex: 3),
+ 
+                           /// Google Button
+Index: lib/src/screens/sign_up/sign_up.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\r\nimport 'package:jewellery_app/src/screens/sign_in/sign_in.dart';\r\nimport '../main_screen/main_screen.dart';\r\nimport 'view/back_button_and_text_button.dart';\r\nimport 'view/get_started_button.dart';\r\nimport 'view/google_button.dart';\r\nimport 'view/text_field_password.dart';\r\nimport 'view/text_field_widget.dart';\r\nimport 'view/text_widget.dart';\r\n\r\npart './mixin/signi_up_mixin.dart';\r\n\r\nclass SignUpScree extends StatefulWidget {\r\n  const SignUpScree({super.key});\r\n\r\n  @override\r\n  State<SignUpScree> createState() => _SignUpScreeState();\r\n}\r\n\r\nclass _SignUpScreeState extends State<SignUpScree> with SignUpMixin {\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Scaffold(\r\n      backgroundColor: const Color(0xFF000000),\r\n      body: SafeArea(\r\n        child: Padding(\r\n          padding: const EdgeInsets.only(top: 20, right: 20, left: 20),\r\n          child: SingleChildScrollView(\r\n            child: SizedBox(\r\n              width: MediaQuery.sizeOf(context).width,\r\n              height: MediaQuery.sizeOf(context).height * 0.92,\r\n              child: Column(\r\n                crossAxisAlignment: CrossAxisAlignment.start,\r\n                children: [\r\n                  /// Back Button  and Text\r\n                  BackButtonAndText(\r\n                    textButton: () {\r\n                      Navigator.push(\r\n                        context,\r\n                        MaterialPageRoute(\r\n                          builder: (context) => const MainScreen(),\r\n                        ),\r\n                      );\r\n                    },\r\n                    backButton: () {\r\n                      Navigator.pop(context);\r\n                    },\r\n                  ),\r\n                  Expanded(\r\n                    flex: 8,\r\n                    child: Form(\r\n                      key: _formKey,\r\n                      child: Column(\r\n                        crossAxisAlignment: CrossAxisAlignment.start,\r\n                        children: [\r\n                          /// User Name\r\n                          TextFieldWidgets(\r\n                            controller: controllerName,\r\n                            validator: validateName,\r\n                            textInputAction: TextInputAction.next,\r\n                            hintText: 'Name',\r\n                          ),\r\n                          const Spacer(flex: 2),\r\n\r\n                          /// User Email\r\n                          TextFieldWidgets(\r\n                            controller: controllerEmail,\r\n                            validator: validateEmail,\r\n                            textInputAction: TextInputAction.next,\r\n                            hintText: 'you@exaple.com',\r\n                          ),\r\n                          const Spacer(flex: 2),\r\n\r\n                          /// User Password\r\n                          TextFieldPassword(\r\n                            controller: controllerPassword,\r\n                            validator: validatePassword,\r\n                            textInputAction: TextInputAction.next,\r\n                            hintText: 'Password',\r\n                            obscureText: password,\r\n                            onTap: () {\r\n                              password = !password;\r\n                              setState(() {});\r\n                            },\r\n                            widget: Icon(\r\n                              password\r\n                                  ? Icons.visibility\r\n                                  : Icons.visibility_off,\r\n                              color: Colors.grey,\r\n                            ),\r\n                          ),\r\n                          const Spacer(flex: 2),\r\n\r\n                          /// User Confirm Password\r\n                          TextFieldPassword(\r\n                            controller: controllerCPassword,\r\n                            validator: validateCPassword,\r\n                            textInputAction: TextInputAction.next,\r\n                            hintText: 'Confirm Password',\r\n                            obscureText: passwordSee,\r\n                            onTap: () {\r\n                              passwordSee = !passwordSee;\r\n                              setState(() {});\r\n                            },\r\n                            widget: Icon(\r\n                              passwordSee\r\n                                  ? Icons.visibility\r\n                                  : Icons.visibility_off,\r\n                              color: Colors.grey,\r\n                            ),\r\n                          ),\r\n                          const Spacer(flex: 2),\r\n\r\n                          /// User Phone\r\n                          Form(\r\n                            key: _formPhone,\r\n                            child: TextFieldWidgets(\r\n                              controller: controllerPhone,\r\n                              validator: validatePhone,\r\n                              textInputAction: TextInputAction.done,\r\n                              textInputType: TextInputType.phone,\r\n                              hintText: 'Phone',\r\n                            ),\r\n                          ),\r\n                          const Spacer(flex: 5),\r\n\r\n                          /// Get Start Button\r\n                          GetStartedButton(\r\n                            onPressed: () {\r\n                              if (_formKey.currentState!.validate()) {\r\n                                print(\"Started\");\r\n                              }\r\n                            },\r\n                          ),\r\n                          const Spacer(),\r\n\r\n                          /// Text Sign In\r\n                          TextWidget(\r\n                            onTap: () {\r\n                              Navigator.push(\r\n                                context,\r\n                                MaterialPageRoute(\r\n                                  builder: (context) => const SignInScreen(),\r\n                                ),\r\n                              );\r\n                            },\r\n                          ),\r\n                          const Spacer(flex: 6),\r\n\r\n                          /// Google Button\r\n                          GoogleButton(\r\n                            onTap: () {},\r\n                          ),\r\n                        ],\r\n                      ),\r\n                    ),\r\n                  ),\r\n                ],\r\n              ),\r\n            ),\r\n          ),\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/src/screens/sign_up/sign_up.dart b/lib/src/screens/sign_up/sign_up.dart
+--- a/lib/src/screens/sign_up/sign_up.dart	(revision 0ac5fa33ec7d1d4ca13ec882e726db961977c42b)
++++ b/lib/src/screens/sign_up/sign_up.dart	(date 1698500710771)
+@@ -6,25 +6,25 @@
+ import 'view/google_button.dart';
+ import 'view/text_field_password.dart';
+ import 'view/text_field_widget.dart';
+-import 'view/text_widget.dart';
++import 'view/text_widget_sign_up.dart';
+ 
+ part './mixin/signi_up_mixin.dart';
+ 
+-class SignUpScree extends StatefulWidget {
+-  const SignUpScree({super.key});
++class SignUpScreen extends StatefulWidget {
++  const SignUpScreen({super.key});
+ 
+   @override
+-  State<SignUpScree> createState() => _SignUpScreeState();
++  State<SignUpScreen> createState() => _SignUpScreenState();
+ }
+ 
+-class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
++class _SignUpScreenState extends State<SignUpScreen> with SignUpMixin {
+   @override
+   Widget build(BuildContext context) {
+     return Scaffold(
+       backgroundColor: const Color(0xFF000000),
+       body: SafeArea(
+         child: Padding(
+-          padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
++          padding: const EdgeInsets.only( right: 20, left: 20),
+           child: SingleChildScrollView(
+             child: SizedBox(
+               width: MediaQuery.sizeOf(context).width,
+@@ -128,7 +128,9 @@
+                           GetStartedButton(
+                             onPressed: () {
+                               if (_formKey.currentState!.validate()) {
+-                                print("Started");
++                                print("Started1");
++                              } else if (_formPhone.currentState!.validate()) {
++                                print("Started2");
+                               }
+                             },
+                           ),
+@@ -149,8 +151,13 @@
+ 
+                           /// Google Button
+                           GoogleButton(
+-                            onTap: () {},
++                            onTap: () {
++                              if (_formPhone.currentState!.validate()) {
++                                print("Started2");
++                              }
++                            },
+                           ),
++                          const Spacer(flex: 2),
+                         ],
+                       ),
+                     ),
+Index: lib/src/screens/sign_up/view/text_widget_sign_up.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/src/screens/sign_up/view/text_widget_sign_up.dart b/lib/src/screens/sign_up/view/text_widget_sign_up.dart
+new file mode 100644
+--- /dev/null	(date 1698238427212)
++++ b/lib/src/screens/sign_up/view/text_widget_sign_up.dart	(date 1698238427212)
+@@ -0,0 +1,39 @@
++import 'package:flutter/gestures.dart';
++import 'package:flutter/material.dart';
++
++import '../../../common/constants/text_style.dart';
++class TextWidget extends StatelessWidget {
++  final void Function() onTap;
++  const TextWidget({super.key, required this.onTap});
++
++  @override
++  Widget build(BuildContext context) {
++    return Center(
++      child: Text.rich(
++        TextSpan(
++          children: [
++            TextSpan(
++              text: 'Already have an account?',
++              style: Styles.textStyle.copyWith(
++                color: Colors.white
++                    .withOpacity(0.699999988079071),
++              ),
++            ),
++            const TextSpan(
++              text: ' ',
++              style: Styles.textStyle,
++            ),
++            TextSpan(
++              recognizer: TapGestureRecognizer()
++                ..onTap = onTap,
++              text: 'Sign in',
++              style: Styles.textStyle.copyWith(
++                fontWeight: FontWeight.w600,
++              ),
++            ),
++          ],
++        ),
++      ),
++    );
++  }
++}
