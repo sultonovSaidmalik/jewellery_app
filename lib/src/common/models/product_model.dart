@@ -54,5 +54,32 @@ class Product {
     return 'Product{productId: $productId, productName: $productName, productDescription: $productDescription, productPrice: $productPrice, productType: $productType, createdAt: $createdAt, updatedAt: $updatedAt, likedProduct: $likedProduct}';
   }
 
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Product &&
+          runtimeType == other.runtimeType &&
+          productId == other.productId &&
+          productName == other.productName &&
+          productDescription == other.productDescription &&
+          productPrice == other.productPrice &&
+          productType == other.productType &&
+          createdAt == other.createdAt &&
+          updatedAt == other.updatedAt &&
+          likedProduct == other.likedProduct &&
+          images == other.images &&
+          genderType == other.genderType;
 
+  @override
+  int get hashCode =>
+      productId.hashCode ^
+      productName.hashCode ^
+      productDescription.hashCode ^
+      productPrice.hashCode ^
+      productType.hashCode ^
+      createdAt.hashCode ^
+      updatedAt.hashCode ^
+      likedProduct.hashCode ^
+      images.hashCode ^
+      genderType.hashCode;
 }

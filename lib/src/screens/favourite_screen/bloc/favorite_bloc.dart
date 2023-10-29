@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jewellery_app/src/repository/product_repository/product_repository.dart';
@@ -25,6 +23,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
     on<FavoriteEvent>((event, emit) => switch (event) {
           FavoriteGetDataEvent e => _getData(e, emit),
           FavoriteDeleteEvent e => _deleteFavorite(e, emit),
+          FavoriteAddEvent e => addFavoriteProduct(e, emit),
           _ => () {},
         });
   }
@@ -45,7 +44,25 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
 
   void _deleteFavorite(FavoriteDeleteEvent event, Emitter emit) async {
     emit(state.copyWith(status: FavoriteStatus.loading));
-    await repository.addFavoriteProduct(event.productId);
-    emit(state.copyWith(status: FavoriteStatus.successDelete));
+    final favorites = state.products
+        .where((element) => element.productId == event.productId)
+        .toList();
+    emit(
+      state.copyWith(
+        status: FavoriteStatus.successDelete,
+        products: favorites,
+      ),
+    );
+    await repository.updateFavorite(favorites);
+  }
+
+  void addFavoriteProduct(FavoriteAddEvent event, Emitter emit) async {
+    emit(state.copyWith(status: FavoriteStatus.loading));
+    final result = await repository.addFavoriteProduct(event.productId);
+    if (result) {
+      emit(state.copyWith(status: FavoriteStatus.successAdded));
+    } else {
+      emit(state.copyWith(status: FavoriteStatus.successDelete));
+    }
   }
 }

@@ -38,8 +38,7 @@ class WidgetsProductDescription extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     context.read<FavoriteBloc>().add(
-                          FavoriteDeleteEvent(
-                              productId: product.productId ?? ""),
+                          FavoriteAddEvent(productId: product.productId ?? ""),
                         );
                   },
                   child: const Icon(

@@ -7,6 +7,7 @@ enum FavoriteStatus {
   loading,
   notFoundData,
   successDelete,
+  successAdded,
 }
 
 class FavoriteState extends Equatable {

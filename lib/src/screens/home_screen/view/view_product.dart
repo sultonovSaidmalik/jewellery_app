@@ -1,12 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jewellery_app/src/repository/favorite_repositor/favorite_repositor.dart';
-import 'package:jewellery_app/src/screens/favourite_screen/bloc/favorite_bloc.dart';
+import 'package:jewellery_app/src/common/ext/product_ext.dart';
 import 'package:jewellery_app/src/screens/favourite_screen/bloc/favorite_bloc.dart';
 
 import '../../../common/models/product_model.dart';
-import '../../detail_screen/detail_screen.dart';
 
 class ViewProduct extends StatelessWidget {
   final void Function() onPressed;
@@ -24,20 +23,28 @@ class ViewProduct extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
-          flex: 4,
+          flex: 3,
           child: Stack(
             children: [
               CupertinoButton(
                 padding: EdgeInsets.zero,
                 onPressed: onPressed,
-                child: Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: NetworkImage(product.images[0]),
-                      fit: BoxFit.contain,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: CachedNetworkImage(
+                    width: double.infinity,
+                    height: double.infinity,
+                    imageUrl: product.images[0],
+                    fit: BoxFit.cover,
+                    errorWidget: (context, url, error) => const Center(
+                      child: Icon(Icons.dangerous_rounded),
+                    ),
+                    placeholder: (context, url) => const Center(
+                      child: Icon(
+                        Icons.image,
+                        color: Colors.grey,
+                        size: 50,
+                      ),
                     ),
                   ),
                 ),
@@ -46,25 +53,28 @@ class ViewProduct extends StatelessWidget {
                 alignment: const Alignment(.95, -.85),
                 child: CupertinoButton(
                   onPressed: () async {
-                    await FavoriteRepositoryImpl()
-                        .addFavoriteProduct(product.productId ?? "");
-                    print(FavoriteRepositoryImpl().getFavourites());
+                    context.read<FavoriteBloc>().add(
+                        FavoriteAddEvent(productId: product.productId ?? ''));
                   },
                   padding: EdgeInsets.zero,
-                  child: Container(
-                    height: 40,
-                    width: 40,
+                  child: DecoratedBox(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       color: Colors.black,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: true ? Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                      ) : Icon(Icons.favorite , color:  Colors.red,
-                            ),
+                      child: BlocBuilder<FavoriteBloc, FavoriteState>(
+                        builder: (context, state) {
+                          return Icon(
+                            Icons.favorite,
+                            color: state.products
+                                    .isIdEqual(product.productId ?? '')
+                                ? Colors.red
+                                : Colors.white,
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
@@ -87,6 +97,7 @@ class ViewProduct extends StatelessWidget {
                   height: 0,
                 ),
               ),
+              const SizedBox(height: 20),
               Text(
                 '${product.productPrice ?? 0} so`m',
                 style: const TextStyle(
