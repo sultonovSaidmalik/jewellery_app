@@ -41,26 +41,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            /// Back Button
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: const SizedBox(
-                                width: 46,
-                                height: 46,
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                      color: Color(0xFF333B48),
-                                      shape: BoxShape.circle),
-                                  child: Icon(
-                                    Icons.arrow_back,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-
+                            const SizedBox.shrink(),
                             /// Skip Button
                             TextButton(
                               onPressed: () {

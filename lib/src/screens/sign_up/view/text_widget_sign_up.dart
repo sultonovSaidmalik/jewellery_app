@@ -20,7 +20,7 @@ class TextWidgetSignUp extends StatelessWidget {
               ),
             ),
             const TextSpan(
-              text: ' ',
+              text: '      ',
               style: Styles.textStyle,
             ),
             TextSpan(
