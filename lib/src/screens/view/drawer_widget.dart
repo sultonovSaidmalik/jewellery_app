@@ -36,6 +36,7 @@ class DrawerWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Spacer(flex: 3),
+
               /// User Name
               Padding(
                 padding: const EdgeInsets.only(right: 5),
@@ -58,10 +59,11 @@ class DrawerWidget extends StatelessWidget {
                 ),
               ),
               const Spacer(),
+
               /// User Phone
               Padding(
                 padding: const EdgeInsets.only(right: 5),
-                child:  Padding(
+                child: Padding(
                   padding: const EdgeInsets.only(left: 20, top: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,6 +83,7 @@ class DrawerWidget extends StatelessWidget {
               ),
 
               const SizedBox(height: 20),
+
               /// Language
               CupertinoButton(
                 onPressed: logOutOnTap,

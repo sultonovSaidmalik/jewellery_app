@@ -19,17 +19,11 @@ class BottomTotalPrice extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Total',
-                  style: Styles.w400,
-                ),
+                const Text('Total', style: Styles.w400),
                 Text(
-                  state.cart.items
-                      .map((e) => e.totalPrice)
-                      .fold<num>(0, (total, element) => total += element)
-                      .toString(),
+                  '${state.cart.items.map((e) => e.totalPrice).fold<num>(0, (total, element) => total += element)} so`m',
                   style: Styles.w700,
-                )
+                ),
               ],
             ),
 

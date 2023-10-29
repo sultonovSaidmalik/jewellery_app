@@ -44,13 +44,16 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
 
   void _deleteFavorite(FavoriteDeleteEvent event, Emitter emit) async {
     emit(state.copyWith(status: FavoriteStatus.loading));
-    await repository.addFavoriteProduct(event.productId);
-    emit(state.copyWith(
-      status: FavoriteStatus.successDelete,
-      products: state.products
-          .where((element) => element.productId == event.productId)
-          .toList(),
-    ));
+    final favorites = state.products
+        .where((element) => element.productId == event.productId)
+        .toList();
+    emit(
+      state.copyWith(
+        status: FavoriteStatus.successDelete,
+        products: favorites,
+      ),
+    );
+    await repository.updateFavorite(favorites);
   }
 
   void addFavoriteProduct(FavoriteAddEvent event, Emitter emit) async {

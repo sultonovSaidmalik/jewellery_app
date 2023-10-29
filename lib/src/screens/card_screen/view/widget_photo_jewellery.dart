@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class WidgetPhotoJewellery extends StatelessWidget {
@@ -9,16 +10,19 @@ class WidgetPhotoJewellery extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 2,
-      child: Container(
-        width: 100,
-        height: 110,
-        decoration: ShapeDecoration(
-          image: DecorationImage(
-            image: NetworkImage(imageUrl),
-            fit: BoxFit.fill,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: CachedNetworkImage(
+          height: 120,
+          width: double.infinity,
+          imageUrl: imageUrl,
+          fit: BoxFit.cover,
+          placeholder: (context, url) => const Center(
+            child: Icon(
+              Icons.image,
+              color: Colors.grey,
+              size: 50,
+            ),
           ),
         ),
       ),
