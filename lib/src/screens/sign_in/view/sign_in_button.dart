@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 import '../../../common/constants/text_style.dart';
 class SignInButton extends StatelessWidget {
   final void Function()? onPressed;
@@ -11,8 +12,8 @@ class SignInButton extends StatelessWidget {
       child: SizedBox(
         width: MediaQuery.sizeOf(context).width,
         height: MediaQuery.sizeOf(context).height * 0.07,
-        child: const DecoratedBox(
-          decoration: BoxDecoration(
+        child:  DecoratedBox(
+          decoration: const BoxDecoration(
             color: Color(0xFF313131),
             borderRadius: BorderRadius.all(
               Radius.circular(30),
@@ -20,7 +21,7 @@ class SignInButton extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              'Sign-In',
+              Strings.signIn.text,
               textAlign: TextAlign.center,
               style: Styles.w600_20,
             ),

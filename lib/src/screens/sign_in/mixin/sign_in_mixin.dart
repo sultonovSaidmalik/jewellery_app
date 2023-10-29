@@ -18,18 +18,18 @@ mixin SignInMixin on State<SignInScreen> {
   String? validateEmail(String? value) {
     RegExp regex = RegExp(r'^[\w-]+(\.[\w-]+)*@gmail.com$');
     if (value != null && value.isEmpty) {
-      return "Write your email";
+      return Strings.validEmail.text;
     }else if(!regex.hasMatch(value!)){
-      return "Invalid Email" ;
+      return Strings.invalidEmail.text;
     }
     return null;
   }
 
   String? validatePassword(String? value) {
     if (value != null && value.isEmpty) {
-      return "Write your password";
+      return Strings.validPassword.text;
     } else if(value!.length < 8){
-      return "Password must be at least 8 characters";
+      return Strings.invalidPassword.text;
     }
     return null;
   }

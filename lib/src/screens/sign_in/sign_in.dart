@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:jewellery_app/src/common/constants/app_router.dart';
 import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
 import 'package:jewellery_app/src/screens/sign_up/sign_up.dart';
+import '../../common/constants/strings.dart';
 import '../../common/constants/text_style.dart';
 import '../sign_up/view/google_button.dart';
 import '../sign_up/view/text_field_password.dart';
@@ -45,15 +48,10 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                             /// Skip Button
                             TextButton(
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const MainScreen(),
-                                  ),
-                                );
+                                context.pushReplacementNamed(Routes.main);
                               },
-                              child: const Text(
-                                "Skip",
+                              child:  Text(
+                                Strings.skip.text,
                                 style: Styles.w400,
                               ),
                             ),
@@ -62,8 +60,8 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                         const Spacer(),
 
                         /// Text
-                        const Text(
-                          'Log-in',
+                         Text(
+                          Strings.login.text,
                           style: Styles.w700_30,
                         ),
                         const Spacer(),
@@ -83,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                             controller: controllerEmail,
                             validator: validateEmail,
                             textInputAction: TextInputAction.next,
-                            hintText: 'you@exaple.com',
+                            hintText: Strings.email.text,
                           ),
                           const Spacer(),
 
@@ -92,7 +90,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                             controller: controllerPassword,
                             validator: validatePassword,
                             textInputAction: TextInputAction.next,
-                            hintText: 'Password',
+                            hintText: Strings.password.text,
                             obscureText: password,
                             onTap: () {
                               password = !password;

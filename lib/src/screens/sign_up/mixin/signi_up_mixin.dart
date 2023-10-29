@@ -28,34 +28,34 @@ mixin SignUpMixin on State<SignUpScree> {
   String? validateEmail(String? value) {
     RegExp regex = RegExp(r'^[\w-]+(\.[\w-]+)*@gmail.com$');
     if (value != null && value.isEmpty) {
-      return "Write your email";
+      return Strings.validEmail.text;
     }else if(!regex.hasMatch(value!)){
-      return "Invalid Email" ;
+      return Strings.invalidEmail.text ;
     }
     return null;
   }
 
   String? validateName(String? value) {
     if (value != null && value.isEmpty) {
-      return "Write your name";
+      return Strings.validName.text;
     }
     return null;
   }
 
   String? validatePassword(String? value) {
     if (value != null && value.isEmpty) {
-      return "Write your password";
+      return Strings.validPassword.text;
     } else if(value!.length < 8){
-      return "Password must be at least 8 characters";
+      return Strings.invalidPassword.text;
     }
     return null;
   }
 
   String? validateCPassword(String? value) {
     if (value != null && value.isEmpty) {
-      return "Write your confirm password";
+      return Strings.validConfirmPassword.text;
     } else if(controllerPassword.text != controllerCPassword.text){
-      return "your password does not match";
+      return Strings.invalidConfirmPassword.text;
     }
     return null;
   }
@@ -63,9 +63,9 @@ mixin SignUpMixin on State<SignUpScree> {
   String? validatePhone(String? value) {
     RegExp regex = RegExp(r'(^\+998\d{9})');
     if (value != null && value.isEmpty) {
-      return "Write your phone";
+      return Strings.validPhone.text;
     }else if(!regex.hasMatch(value!)){
-      return "Invalid phone number";
+      return Strings.invalidPhone.text;
     }
     return null;
   }

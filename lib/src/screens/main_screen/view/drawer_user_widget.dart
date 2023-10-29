@@ -1,26 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/constants/text_style.dart';
+import '../../../common/constants/text_style.dart';
 
-class DrawerWidget extends StatelessWidget {
+class DrawerUserWidget extends StatelessWidget {
   final void Function() languageOnTap;
-  final void Function() profileOnTap;
   final void Function() deleteOnTap;
   final void Function() logOutOnTap;
   final String languageText;
-  final String profileText;
   final String deleteText;
   final String logOutText;
 
-  const DrawerWidget({
+  const DrawerUserWidget({
     super.key,
     required this.languageOnTap,
-    required this.profileOnTap,
     required this.deleteOnTap,
     required this.logOutOnTap,
     required this.languageText,
-    required this.profileText,
     required this.deleteText,
     required this.logOutText,
   });
@@ -86,7 +82,7 @@ class DrawerWidget extends StatelessWidget {
 
               /// Language
               CupertinoButton(
-                onPressed: logOutOnTap,
+                onPressed: languageOnTap,
                 child: Row(
                   children: [
                     const Icon(
@@ -97,27 +93,6 @@ class DrawerWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
                         languageText,
-                        textAlign: TextAlign.center,
-                        style: Styles.w700,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              /// Profile
-              CupertinoButton(
-                onPressed: profileOnTap,
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.person,
-                      color: Colors.white,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(
-                        profileText,
                         textAlign: TextAlign.center,
                         style: Styles.w700,
                       ),

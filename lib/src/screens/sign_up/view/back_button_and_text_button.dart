@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 
 import '../../../common/constants/text_style.dart';
 class BackButtonAndText extends StatelessWidget {
@@ -38,8 +39,8 @@ class BackButtonAndText extends StatelessWidget {
               /// Skip Button
               TextButton(
                 onPressed: textButton,
-                child: const Text(
-                  "Skip",
+                child:  Text(
+                  Strings.skip.text,
                   style: Styles.w400,
                 ),
               ),
@@ -47,8 +48,8 @@ class BackButtonAndText extends StatelessWidget {
           ),
 
           /// Text
-          const Text(
-            'Create\nAccount',
+           Text(
+            Strings.create.text,
             style: Styles.w700_30,
           )
         ],

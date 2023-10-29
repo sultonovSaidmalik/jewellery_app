@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 
 import '../../../common/constants/text_style.dart';
 class TextWidgetSignIn extends StatelessWidget {
@@ -13,7 +14,7 @@ class TextWidgetSignIn extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: "Don't have an account?",
+              text: Strings.don.text,
               style: Styles.textStyle.copyWith(
                 color: Colors.white
                     .withOpacity(0.699999988079071),
@@ -26,7 +27,7 @@ class TextWidgetSignIn extends StatelessWidget {
             TextSpan(
               recognizer: TapGestureRecognizer()
                 ..onTap = onTap,
-              text: 'Sign up',
+              text: Strings.signUp.text,
               style: Styles.textStyle.copyWith(
                 fontWeight: FontWeight.w600,
               ),

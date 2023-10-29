@@ -1,17 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:jewellery_app/src/common/constants/text_style.dart';
-import 'package:jewellery_app/src/repository/product_repository/product_repository.dart';
+import 'package:go_router/go_router.dart';
+import 'package:jewellery_app/src/common/constants/app_router.dart';
 import 'package:jewellery_app/src/screens/card_screen/card_screen.dart';
 import 'package:jewellery_app/src/screens/favourite_screen/favourite_screen.dart';
 import 'package:jewellery_app/src/screens/home_screen/home_screen.dart';
-
-import '../../common/service/service_locator.dart';
-import '../favourite_screen/bloc/favorite_bloc.dart';
-import '../home_screen/bloc/home_bloc.dart';
-import '../view/drawer_widget.dart';
+import 'view/drawer_not_user_widget.dart';
+import 'view/drawer_user_widget.dart';
 import 'bloc/main_bloc.dart';
 import 'view/custom_navigation_bar.dart';
 
@@ -25,6 +21,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   ZoomDrawerController drawerController = ZoomDrawerController();
   final PageController screenController = PageController(initialPage: 1);
+
+  bool isUser = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,16 +61,22 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
-      menuScreen: DrawerWidget(
-        languageOnTap: () {},
-        profileOnTap: () {},
-        deleteOnTap: () {},
-        logOutOnTap: () {},
-        languageText: "Language",
-        profileText: "Profile",
-        deleteText: "Delete Account",
-        logOutText: "Log Out",
-      ),
+      menuScreen: isUser
+          ? DrawerUserWidget(
+              languageOnTap: () {},
+              deleteOnTap: () {},
+              logOutOnTap: () {},
+              languageText: "Language",
+              deleteText: "Delete",
+              logOutText: "Log Out",
+            )
+          : DrawerNotUserWidget(
+              signInOnTap: () {
+                context.pushReplacementNamed(Routes.signIn);
+              },
+              languageText: "Language",
+              signInText: 'Sign In',
+            ),
     );
   }
 }

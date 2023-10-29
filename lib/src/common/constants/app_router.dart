@@ -11,11 +11,12 @@ class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: '/',
-        name: 'main',
+        path: Routes.main,
+        name: Routes.main,
         builder: (context, state) {
-          return const SignInScreen();
+          return const MainScreen();
         },
+        // redirect: (context, state) => Routes.signIn,
         routes: [
           GoRoute(
             path: 'view',
@@ -31,6 +32,28 @@ class AppRouter {
           ),
         ],
       ),
+      GoRoute(
+        path: Routes.signIn,
+        name: Routes.signIn,
+        builder: (context, state) {
+          return const SignInScreen();
+        },
+      ),
+      GoRoute(
+        path: Routes.signUp,
+        name: Routes.signUp,
+        builder: (context, state) {
+          return const SignUpScree();
+        },
+      ),
     ],
   );
+}
+
+class Routes {
+  const Routes._();
+
+  static const String main = "/";
+  static const String signIn = "/sign_in";
+  static const String signUp = "/sign_up";
 }

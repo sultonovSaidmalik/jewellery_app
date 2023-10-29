@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:jewellery_app/src/common/constants/app_router.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/screens/sign_in/sign_in.dart';
 import '../main_screen/main_screen.dart';
 import 'view/back_button_and_text_button.dart';
@@ -35,15 +38,10 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                   /// Back Button  and Text
                   BackButtonAndText(
                     textButton: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const MainScreen(),
-                        ),
-                      );
+                      context.pushReplacementNamed(Routes.main);
                     },
                     backButton: () {
-                      Navigator.pop(context);
+                      context.pop();
                     },
                   ),
                   Expanded(
@@ -58,7 +56,7 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                             controller: controllerName,
                             validator: validateName,
                             textInputAction: TextInputAction.next,
-                            hintText: 'Name',
+                            hintText: Strings.name.text,
                           ),
                           const Spacer(flex: 2),
 
@@ -67,7 +65,7 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                             controller: controllerEmail,
                             validator: validateEmail,
                             textInputAction: TextInputAction.next,
-                            hintText: 'you@exaple.com',
+                            hintText: Strings.email.text,
                           ),
                           const Spacer(flex: 2),
 
@@ -76,7 +74,7 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                             controller: controllerPassword,
                             validator: validatePassword,
                             textInputAction: TextInputAction.next,
-                            hintText: 'Password',
+                            hintText: Strings.password.text,
                             obscureText: password,
                             onTap: () {
                               password = !password;
@@ -96,7 +94,7 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                             controller: controllerCPassword,
                             validator: validateCPassword,
                             textInputAction: TextInputAction.next,
-                            hintText: 'Confirm Password',
+                            hintText: Strings.confirmPassword.text,
                             obscureText: passwordSee,
                             onTap: () {
                               passwordSee = !passwordSee;
@@ -119,7 +117,7 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                               validator: validatePhone,
                               textInputAction: TextInputAction.done,
                               textInputType: TextInputType.phone,
-                              hintText: 'Phone',
+                              hintText: Strings.phone.text,
                             ),
                           ),
                           const Spacer(flex: 5),
