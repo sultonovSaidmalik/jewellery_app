@@ -40,6 +40,12 @@ enum Strings {
   price('Price'),
   favourite('Favourite'),
   removed('Removed from favorites!'),
+  cartIsEmpty('Cart is empty'),
+  cartRemoved('Cart removed!'),
+  total('Total'),
+  clearCart('Clear Cart'),
+  cart('Cart'),
+  confirmCart('Confirm cart'),
   signUp('Sign up');
 
   const Strings(this.text);

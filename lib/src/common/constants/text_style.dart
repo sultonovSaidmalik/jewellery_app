@@ -101,6 +101,13 @@ class Styles {
     fontWeight: FontWeight.w800,
     height: 0,
   );
+  static const TextStyle w800_17 = TextStyle(
+    color: Colors.white,
+    fontSize: 17,
+    fontFamily: 'SF Pro',
+    fontWeight: FontWeight.w800,
+    height: 0,
+  );
   static const TextStyle w800_13 = TextStyle(
     color: Colors.white,
     fontSize: 13,

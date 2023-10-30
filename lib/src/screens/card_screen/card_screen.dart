@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/utils/utils.dart';
 import 'package:jewellery_app/src/screens/card_screen/bloc/cart_bloc.dart';
 import 'view/bottom_total_price_button.dart';
@@ -14,10 +15,10 @@ class CartScreen extends StatelessWidget {
     return BlocListener<CartBloc, CartState>(
       listener: (BuildContext context, CartState state) {
         if(state.status == CartStatus.clearCartEmpty) {
-          AppUtils.msg(context, "Karzinka Bo'sh", color: Colors.red);
+          AppUtils.msg(context, Strings.cartIsEmpty.text, color: Colors.red);
         }
         if(state.status == CartStatus.clearCart) {
-          AppUtils.msg(context, "Karzinka bo'shatildi !");
+          AppUtils.msg(context, Strings.cartRemoved.text);
         }
       },
       child: const Scaffold(

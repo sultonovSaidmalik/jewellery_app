@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/screens/card_screen/bloc/cart_bloc.dart';
 
 import '../../../common/constants/text_style.dart';
@@ -12,8 +13,8 @@ class ScreenNameAndCartButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            'Cart',
+          Text(
+            Strings.cart.text,
             style: Styles.w700_25,
           ),
           /// Button Clear Cart
@@ -30,9 +31,9 @@ class ScreenNameAndCartButton extends StatelessWidget {
                   Radius.circular(5),
                 ),
               ),
-              child: const Center(
+              child: Center(
                 child: Text(
-                  'Clear Cart',
+                  Strings.clearCart.text,
                   style: Styles.w500,
                 ),
               ),

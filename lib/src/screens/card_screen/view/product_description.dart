@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 
 import '../../../common/constants/text_style.dart';
 import 'add_to_cart.dart';
@@ -72,7 +73,7 @@ class ProductDescription extends StatelessWidget {
             const SizedBox(height: 5),
             /// Price
             Text(
-              "$price so'm",
+              "$price ${Strings.som.text}",
               textAlign: TextAlign.right,
               style: Styles.w700_20,
             ),
