@@ -71,25 +71,31 @@ class WidgetsProductDescription extends StatelessWidget {
                         if (cartItem == null)
                           ButtonAddToBasket(
                             onTap: () {
-                              context.read<CartBloc>().add(CartAddProductEvent(
-                                  cartItem: CartItem(
-                                      id: product.productId ?? "",
-                                      product: product,
-                                      productCount: 1,
-                                      totalPrice: product.productPrice ?? 0)));
+                              context.read<CartBloc>().add(
+                                    CartAddProductEvent(
+                                      cartItem: CartItem(
+                                          id: product.productId ?? "",
+                                          product: product,
+                                          productCount: 1,
+                                          totalPrice:
+                                              product.productPrice ?? 0),
+                                    ),
+                                  );
                             },
                           ),
                         if (cartItem != null)
                           AddToIncDec(
                             increment: () {
                               context.read<CartBloc>().add(
-                                  CartIncrementProductEvent(
-                                      productId: product.productId ?? ""));
+                                    CartIncrementProductEvent(
+                                        productId: product.productId ?? ""),
+                                  );
                             },
                             decrement: () {
                               context.read<CartBloc>().add(
-                                  CartDecrementProductEvent(
-                                      productId: product.productId ?? ""));
+                                    CartDecrementProductEvent(
+                                        productId: product.productId ?? ""),
+                                  );
                             },
                             count: cartItem.productCount,
                           ),

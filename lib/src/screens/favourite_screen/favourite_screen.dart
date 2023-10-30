@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/utils/utils.dart';
 import 'bloc/favorite_bloc.dart';
 import 'view/app_bar_text.dart';
@@ -24,7 +25,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
     return BlocListener<FavoriteBloc, FavoriteState>(
       listener: (context, state) {
         if (state.status == FavoriteStatus.successDelete) {
-          AppUtils.msg(context, "Favoritedan o'chirildi !");
+          AppUtils.msg(context, Strings.removed.text);
           context.read<FavoriteBloc>().add(const FavoriteGetDataEvent());
         }
       },

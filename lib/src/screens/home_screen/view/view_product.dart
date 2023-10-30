@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
+import 'package:jewellery_app/src/common/constants/text_style.dart';
 import 'package:jewellery_app/src/common/ext/product_ext.dart';
 import 'package:jewellery_app/src/screens/favourite_screen/bloc/favorite_bloc.dart';
 
@@ -89,24 +91,12 @@ class ViewProduct extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 product.productName ?? "",
-                style: const TextStyle(
-                  color: Color(0xFFD9D9D9),
-                  fontSize: 10,
-                  fontFamily: 'SF Pro',
-                  fontWeight: FontWeight.w400,
-                  height: 0,
-                ),
+                style: Styles.w400_10,
               ),
               const SizedBox(height: 20),
               Text(
-                '${product.productPrice ?? 0} so`m',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontFamily: 'SF Pro',
-                  fontWeight: FontWeight.w700,
-                  height: 0,
-                ),
+                '${product.productPrice ?? 0} ${Strings.som.text}',
+                style: Styles.w700_15
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
 
 class AppBarTextWidgets extends StatelessWidget {
@@ -6,10 +7,10 @@ class AppBarTextWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Expanded(
+    return   Expanded(
       /// Screen Name
       child: Text(
-         "Favourite",
+         Strings.favourite.text,
          style:  Styles.w700_25,
       ),
     );

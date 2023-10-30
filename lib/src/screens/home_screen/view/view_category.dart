@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/common/constants/text_style.dart';
 
 class ViewCategory extends StatelessWidget {
   const ViewCategory({
@@ -38,13 +39,7 @@ class ViewCategory extends StatelessWidget {
               ),
               child: Text(
                 categories[index],
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontFamily: 'SF Pro',
-                  fontWeight: FontWeight.w400,
-                  height: 0,
-                ),
+                style: Styles.w400_12,
               ),
             ),
           );

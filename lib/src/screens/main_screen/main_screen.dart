@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jewellery_app/src/common/constants/app_router.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/screens/card_screen/card_screen.dart';
 import 'package:jewellery_app/src/screens/favourite_screen/favourite_screen.dart';
 import 'package:jewellery_app/src/screens/home_screen/home_screen.dart';
@@ -66,16 +67,16 @@ class _MainScreenState extends State<MainScreen> {
               languageOnTap: () {},
               deleteOnTap: () {},
               logOutOnTap: () {},
-              languageText: "Language",
-              deleteText: "Delete",
-              logOutText: "Log Out",
+              languageText: Strings.language.text,
+              deleteText: Strings.delete.text,
+              logOutText: Strings.logOut.text,
             )
           : DrawerNotUserWidget(
               signInOnTap: () {
                 context.pushReplacementNamed(Routes.signIn);
               },
-              languageText: "Language",
-              signInText: 'Sign In',
+              languageText: Strings.language.text,
+              signInText: Strings.signIn.text,
             ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
 import 'package:jewellery_app/src/common/models/cart_item_model.dart';
 import 'package:jewellery_app/src/screens/card_screen/bloc/cart_bloc.dart';
@@ -107,8 +108,8 @@ class _DetailScreenState extends State<DetailScreen> with DetailMixin {
 
                   /// Explanation Text
 
-                  const Text(
-                    'Description',
+                  Text(
+                    Strings.description.text,
                     style: Styles.w500_19,
                   ),
                   const SizedBox(height: 15),
@@ -137,25 +138,13 @@ class _DetailScreenState extends State<DetailScreen> with DetailMixin {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "Price",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontFamily: 'SF Pro',
-                                fontWeight: FontWeight.w400,
-                                height: 0,
-                              ),
+                            Text(
+                              Strings.price.text,
+                              style: Styles.w400_15,
                             ),
                             Text(
-                              "${(widget.product.productPrice ?? 0)} so'm",
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 19,
-                                fontFamily: 'SF Pro',
-                                fontWeight: FontWeight.w700,
-                                height: 0,
-                              ),
+                              "${(widget.product.productPrice ?? 0)} ${Strings.som.text}",
+                              style: Styles.w700_19,
                             )
                           ],
                         ),

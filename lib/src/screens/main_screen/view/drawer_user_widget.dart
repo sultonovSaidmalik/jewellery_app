@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 
 import '../../../common/constants/text_style.dart';
 
@@ -42,7 +43,7 @@ class DrawerUserWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "User Name",
+                        Strings.userName.text,
                         style: Styles.w700_25.copyWith(color: Colors.grey),
                       ),
                       const SizedBox(height: 5),
@@ -65,7 +66,7 @@ class DrawerUserWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "User Phone",
+                        Strings.userPhone.text,
                         style: Styles.w700_25.copyWith(color: Colors.grey),
                       ),
                       const SizedBox(height: 5),

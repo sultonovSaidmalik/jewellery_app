@@ -1,6 +1,7 @@
 import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
 import '../../../common/constants/text_style.dart';
 
 enum SingingCharacter { uzbek, english, russian }
@@ -37,7 +38,7 @@ class _DrawerNotUserWidgetState extends State<DrawerNotUserWidget> {
                   children: [
                     CircleFlag("uz", size: 30,),
                     const Spacer(),
-                    const Text('Uzbek'),
+                    Text(Strings.uzbek.text),
                     const Spacer(flex: 6),
                   ],
                 ),
@@ -53,7 +54,7 @@ class _DrawerNotUserWidgetState extends State<DrawerNotUserWidget> {
                   children: [
                     CircleFlag("us", size: 30,),
                     const Spacer(),
-                    const Text('English'),
+                    Text(Strings.english.text),
                     const Spacer(flex: 6),
                   ],
                 ),
@@ -69,7 +70,7 @@ class _DrawerNotUserWidgetState extends State<DrawerNotUserWidget> {
                   children: [
                     CircleFlag("ru", size: 30,),
                     const Spacer(),
-                    const Text('Russian'),
+                    Text(Strings.russian.text),
                     const Spacer(flex: 6),
                   ],
                 ),

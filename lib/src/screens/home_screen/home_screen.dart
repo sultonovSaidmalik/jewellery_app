@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jewellery_app/src/common/constants/strings.dart';
+import 'package:jewellery_app/src/common/constants/text_style.dart';
 import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
 import 'package:jewellery_app/src/screens/view/custom_indicator.dart';
 
@@ -17,17 +19,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> categories = ["All", "Ring", "Necklace", "Bracelet"];
-  String selectedCategory = "All";
+  List<String> categories = [
+    Strings.all.text,
+    Strings.ring.text,
+    Strings.necklace.text,
+    Strings.bracelet.text,
+  ];
+  String selectedCategory =  Strings.all.text;
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<FavoriteBloc, FavoriteState>(
       listener: (context, state) {
-        if(state.status == FavoriteStatus.successAdded) {
+        if (state.status == FavoriteStatus.successAdded) {
           context.read<FavoriteBloc>().add(const FavoriteGetDataEvent());
         }
-        if(state.status == FavoriteStatus.successDelete) {
+        if (state.status == FavoriteStatus.successDelete) {
           context.read<FavoriteBloc>().add(const FavoriteGetDataEvent());
         }
       },
@@ -48,9 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Stack(
+                           Stack(
                             children: [
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.only(left: 85),
                                 child: Image(
                                   image: AssetImage(
@@ -61,14 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               Text(
-                                'Elite Diamonds',
-                                style: TextStyle(
-                                  color: Color(0xFFF5F5F5),
-                                  fontSize: 60,
-                                  fontFamily: 'Dorsa',
-                                  fontWeight: FontWeight.w400,
-                                  height: 0,
-                                ),
+                                Strings.eliteDiamonds.text,
+                                style: Styles.w400_60,
                               ),
                             ],
                           ),
@@ -104,15 +105,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
 
                       /// Categories name
-                      const Text(
-                        'Categories',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                          fontFamily: 'SF Pro',
-                          fontWeight: FontWeight.w700,
-                          height: 0,
-                        ),
+                       Text(
+                        Strings.categories.text,
+                        style: Styles.w700_25,
                       ),
                       const SizedBox(height: 15),
 
