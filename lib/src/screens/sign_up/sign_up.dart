@@ -107,19 +107,6 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                               color: Colors.grey,
                             ),
                           ),
-                          const Spacer(flex: 2),
-
-                          /// User Phone
-                          Form(
-                            key: _formPhone,
-                            child: TextFieldWidgets(
-                              controller: controllerPhone,
-                              validator: validatePhone,
-                              textInputAction: TextInputAction.done,
-                              textInputType: TextInputType.phone,
-                              hintText: Strings.phone.text,
-                            ),
-                          ),
                           const Spacer(flex: 5),
 
                           /// Get Start Button
@@ -127,8 +114,6 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 print("Started1");
-                              } else if (_formPhone.currentState!.validate()) {
-                                print("Started2");
                               }
                             },
                           ),
@@ -137,23 +122,14 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                           /// Text Sign In
                           TextWidgetSignUp(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const SignInScreen(),
-                                ),
-                              );
+                              context.pushReplacementNamed(Routes.signIn);
                             },
                           ),
                           const Spacer(flex: 6),
 
                           /// Google Button
                           GoogleButton(
-                            onTap: () {
-                              if (_formPhone.currentState!.validate()) {
-                                print("Started2");
-                              }
-                            },
+                            onTap: () {},
                           ),
                           const Spacer(flex: 2),
                         ],

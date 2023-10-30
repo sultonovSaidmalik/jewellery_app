@@ -74,7 +74,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                       key: _formKey,
                       child: Column(
                         children: [
-                          const Spacer(),
+                          const Spacer(flex: 5),
 
                           /// User Email
                           TextFieldWidgets(
@@ -103,7 +103,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                               color: Colors.grey,
                             ),
                           ),
-                          const Spacer(flex: 3),
+                          const Spacer(flex: 5),
 
                           /// Button Sign In
                           SignInButton(
@@ -116,12 +116,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                           /// Text Sign In
                           TextWidgetSignIn(
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const SignUpScree(),
-                                ),
-                              );
+                              context.pushReplacementNamed(Routes.signUp);
                             },
                           ),
                           const Spacer(flex: 3),
@@ -130,7 +125,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                           GoogleButton(
                             onTap: () {},
                           ),
-                          const Spacer(flex: 3),
+                          const Spacer(flex: 5),
                         ],
                       ),
                     ),

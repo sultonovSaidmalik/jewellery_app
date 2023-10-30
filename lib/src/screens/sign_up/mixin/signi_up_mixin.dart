@@ -8,7 +8,6 @@ mixin SignUpMixin on State<SignUpScree> {
   late TextEditingController controllerEmail ;
   late TextEditingController controllerPassword ;
   late TextEditingController controllerCPassword ;
-  late TextEditingController controllerPhone ;
 
   @override
   void initState() {
@@ -16,12 +15,10 @@ mixin SignUpMixin on State<SignUpScree> {
     controllerEmail = TextEditingController();
     controllerPassword = TextEditingController();
     controllerCPassword = TextEditingController();
-    controllerPhone = TextEditingController();
     super.initState();
   }
 
   final _formKey = GlobalKey<FormState>();
-  final _formPhone = GlobalKey<FormState>();
   bool passwordSee = true;
   bool password = true;
 
@@ -56,16 +53,6 @@ mixin SignUpMixin on State<SignUpScree> {
       return Strings.validConfirmPassword.text;
     } else if(controllerPassword.text != controllerCPassword.text){
       return Strings.invalidConfirmPassword.text;
-    }
-    return null;
-  }
-
-  String? validatePhone(String? value) {
-    RegExp regex = RegExp(r'(^\+998\d{9})');
-    if (value != null && value.isEmpty) {
-      return Strings.validPhone.text;
-    }else if(!regex.hasMatch(value!)){
-      return Strings.invalidPhone.text;
     }
     return null;
   }
