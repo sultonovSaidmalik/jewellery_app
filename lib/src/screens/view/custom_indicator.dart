@@ -7,7 +7,7 @@ class CustomIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: CircularProgressIndicator(
-        color: Colors.white.withOpacity(0.5  ),
+        color: Colors.white.withOpacity(0.5   ),
       ),
     );
   }
