@@ -45,6 +45,10 @@ enum Strings {
   total('Total'),
   clearCart('Clear Cart'),
   cart('Cart'),
+  registration('Registration'),
+  ok('Ok'),
+  your('Your order has been accepted. Admin will contact you soon.'),
+  write('Write down your name and number so that our admin can contact you.'),
   confirmCart('Confirm cart'),
   signUp('Sign up');
 

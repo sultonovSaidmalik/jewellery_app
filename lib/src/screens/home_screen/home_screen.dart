@@ -73,33 +73,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
-                          Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: const Image(
-                                  image:
-                                      AssetImage("assets/icons/ic_search.png"),
-                                  height: 25,
-                                  width: 26,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              GestureDetector(
-                                onTap: () {
-                                  context
-                                      .getInheritedWidgetOfExactType<
-                                          MainScope>()!
-                                      .drawerController
-                                      .toggle!();
-                                },
-                                child: const Image(
-                                  image: AssetImage("assets/icons/ic_menu.png"),
-                                  height: 25,
-                                  width: 30,
-                                ),
-                              ),
-                            ],
+                          GestureDetector(
+                            onTap: () {
+                              context
+                                  .getInheritedWidgetOfExactType<
+                                      MainScope>()!
+                                  .drawerController
+                                  .toggle!();
+                            },
+                            child: const Image(
+                              image: AssetImage("assets/icons/ic_menu.png"),
+                              height: 25,
+                              width: 30,
+                            ),
                           ),
                         ],
                       ),

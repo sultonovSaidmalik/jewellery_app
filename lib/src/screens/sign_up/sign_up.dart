@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jewellery_app/src/common/constants/app_router.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
-import 'package:jewellery_app/src/screens/sign_in/sign_in.dart';
-import '../main_screen/main_screen.dart';
 import 'view/back_button_and_text_button.dart';
 import 'view/get_started_button.dart';
 import 'view/google_button.dart';

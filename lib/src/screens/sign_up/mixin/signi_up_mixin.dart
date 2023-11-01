@@ -56,4 +56,14 @@ mixin SignUpMixin on State<SignUpScree> {
     }
     return null;
   }
+
+  String? validatePhone(String? value) {
+    RegExp regex = RegExp(r'(^\+998\d{9})');
+    if (value != null && value.isEmpty) {
+      return "Write your phone";
+    }else if(!regex.hasMatch(value!)){
+      return "Invalid phone number";
+    }
+    return null;
+  }
 }

@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:jewellery_app/src/common/constants/app_router.dart';
+import '../../common/constants/app_router.dart';
 import '../../common/constants/strings.dart';
 import '../../common/constants/text_style.dart';
-import '../sign_up/view/google_button.dart';
-import '../sign_up/view/text_field_password.dart';
-import '../sign_up/view/text_field_widget.dart';
-import 'view/sign_in_button.dart';
-import 'view/text_widget_sign_in.dart';
+import 'view/registration_button.dart';
+import 'view/text_field_widget_registration.dart';
 
-part './mixin/sign_in_mixin.dart';
+part './mixin/registration_mixin.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> with SignInMixin {
+class _RegistrationScreenState extends State<RegistrationScreen>
+    with RegistrationMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +32,7 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    flex: 3,
+                    flex: 2,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,12 +41,13 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const SizedBox.shrink(),
+
                             /// Skip Button
                             TextButton(
                               onPressed: () {
                                 context.pushReplacementNamed(Routes.main);
                               },
-                              child:  Text(
+                              child: Text(
                                 Strings.skip.text,
                                 style: Styles.w400,
                               ),
@@ -58,72 +57,55 @@ class _SignInScreenState extends State<SignInScreen> with SignInMixin {
                         const Spacer(),
 
                         /// Text
-                         Text(
-                          Strings.login.text,
+                        Text(
+                          Strings.registration.text,
                           style: Styles.w700_30,
                         ),
                         const Spacer(),
+
+                        /// Text
+                        Text(
+                          Strings.write.text,
+                          style: Styles.w400_15,
+                        ),
                       ],
                     ),
                   ),
                   Expanded(
-                    flex: 8,
+                    flex: 6,
                     child: Form(
                       key: _formKey,
                       child: Column(
                         children: [
-                          const Spacer(flex: 5),
+                          const Spacer(),
 
-                          /// User Email
-                          TextFieldWidgets(
-                            controller: controllerEmail,
-                            validator: validateEmail,
+                          /// User Name
+                          TextFieldRegistrationWidgets(
+                            controller: controllerName,
+                            validator: validateName,
                             textInputAction: TextInputAction.next,
-                            hintText: Strings.email.text,
+                            hintText: Strings.name.text,
                           ),
                           const Spacer(),
 
-                          /// User Password
-                          TextFieldPassword(
-                            controller: controllerPassword,
-                            validator: validatePassword,
+                          /// User Number
+                          TextFieldRegistrationWidgets(
+                            controller: controllerPhone,
+                            validator: validatePhone,
                             textInputAction: TextInputAction.next,
-                            hintText: Strings.password.text,
-                            obscureText: password,
-                            onTap: () {
-                              password = !password;
-                              setState(() {});
-                            },
-                            widget: Icon(
-                              password
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Colors.grey,
-                            ),
+                            textInputType: TextInputType.phone,
+                            hintText: Strings.phone.text,
                           ),
-                          const Spacer(flex: 5),
-
-                          /// Button Sign In
-                          SignInButton(
+                          const Spacer(flex: 8),
+                          RegistrationButton(
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 print("Started1");
+                                showMyDialog();
                               }
                             },
                           ),
-                          /// Text Sign In
-                          TextWidgetSignIn(
-                            onTap: () {
-                              context.pushReplacementNamed(Routes.signUp);
-                            },
-                          ),
-                          const Spacer(flex: 3),
-
-                          /// Google Button
-                          GoogleButton(
-                            onTap: () {},
-                          ),
-                          const Spacer(flex: 5),
+                          const Spacer(),
                         ],
                       ),
                     ),

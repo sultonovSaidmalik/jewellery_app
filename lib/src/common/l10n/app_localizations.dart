@@ -95,6 +95,293 @@ abstract class AppLocalizations {
     Locale('uz')
   ];
 
+  /// No description provided for @already.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get already;
+
+  /// No description provided for @don.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t have an account?'**
+  String get don;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get started'**
+  String get getStarted;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @create.
+  ///
+  /// In en, this message translates to:
+  /// **'Create\nAccount'**
+  String get create;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'you@exaple.com'**
+  String get email;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phone;
+
+  /// No description provided for @validEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your email'**
+  String get validEmail;
+
+  /// No description provided for @validName.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your name'**
+  String get validName;
+
+  /// No description provided for @validPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your phone'**
+  String get validPhone;
+
+  /// No description provided for @validPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your password'**
+  String get validPassword;
+
+  /// No description provided for @validConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your confirm password'**
+  String get validConfirmPassword;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Email'**
+  String get invalidEmail;
+
+  /// No description provided for @invalidPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid phone number'**
+  String get invalidPhone;
+
+  /// No description provided for @invalidPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters'**
+  String get invalidPassword;
+
+  /// No description provided for @invalidConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'your password does not match'**
+  String get invalidConfirmPassword;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get signIn;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Log-in'**
+  String get login;
+
+  /// No description provided for @userPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'User Phone'**
+  String get userPhone;
+
+  /// No description provided for @userName.
+  ///
+  /// In en, this message translates to:
+  /// **'User Name'**
+  String get userName;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Out'**
+  String get logOut;
+
+  /// No description provided for @uzbek.
+  ///
+  /// In en, this message translates to:
+  /// **'Uzbek'**
+  String get uzbek;
+
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @russian.
+  ///
+  /// In en, this message translates to:
+  /// **'Russian'**
+  String get russian;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
+
+  /// No description provided for @ring.
+  ///
+  /// In en, this message translates to:
+  /// **'Ring'**
+  String get ring;
+
+  /// No description provided for @necklace.
+  ///
+  /// In en, this message translates to:
+  /// **'Necklace'**
+  String get necklace;
+
+  /// No description provided for @bracelet.
+  ///
+  /// In en, this message translates to:
+  /// **'Bracelet'**
+  String get bracelet;
+
+  /// No description provided for @eliteDiamonds.
+  ///
+  /// In en, this message translates to:
+  /// **'Elite Diamonds'**
+  String get eliteDiamonds;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @som.
+  ///
+  /// In en, this message translates to:
+  /// **'so`m'**
+  String get som;
+
+  /// No description provided for @addToBasket.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Basket'**
+  String get addToBasket;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @price.
+  ///
+  /// In en, this message translates to:
+  /// **'Price'**
+  String get price;
+
+  /// No description provided for @favourite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favourite'**
+  String get favourite;
+
+  /// No description provided for @removed.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed from favorites!'**
+  String get removed;
+
+  /// No description provided for @cartIsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Cart is empty'**
+  String get cartIsEmpty;
+
+  /// No description provided for @cartRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Cart removed!'**
+  String get cartRemoved;
+
+  /// No description provided for @total.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get total;
+
+  /// No description provided for @clearCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Cart'**
+  String get clearCart;
+
+  /// No description provided for @cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Cart'**
+  String get cart;
+
+  /// No description provided for @confirmCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm cart'**
+  String get confirmCart;
+
+  /// No description provided for @signUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up'**
+  String get signUp;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

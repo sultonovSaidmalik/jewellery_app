@@ -83,12 +83,12 @@ class _DetailScreenState extends State<DetailScreen> with DetailMixin {
                         child: MyBackButton(),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 40, right: 20),
-
-                      /// Favourite and Share Buttons
-                      child: FavouriteShareButtons(),
-                    ),
+                    // Padding(
+                    //   padding: EdgeInsets.only(top: 40, right: 20),
+                    //
+                    //   /// Favourite and Share Buttons
+                    //   child: FavouriteShareButtons(),
+                    // ),
                   ],
                 )
               ],

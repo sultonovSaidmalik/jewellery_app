@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/screens/card_screen/bloc/cart_bloc.dart';
+import 'package:jewellery_app/src/screens/registration_screen/registration_screen.dart';
 
 import '../../../common/constants/text_style.dart';
 import 'confirm_cart_button_wiget.dart';
@@ -30,7 +31,9 @@ class BottomTotalPrice extends StatelessWidget {
 
             /// Confirm Cart Button
             ConfirmCartButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder:  (context) => const RegistrationScreen(),));
+              },
               isActive: state.cart.items.isNotEmpty,
             ),
           ],

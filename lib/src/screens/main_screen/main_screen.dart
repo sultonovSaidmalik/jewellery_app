@@ -23,7 +23,7 @@ class _MainScreenState extends State<MainScreen> {
   ZoomDrawerController drawerController = ZoomDrawerController();
   final PageController screenController = PageController(initialPage: 1);
 
-  bool isUser = false;
+  bool isUser = true;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,6 @@ class _MainScreenState extends State<MainScreen> {
       ),
       menuScreen: isUser
           ? DrawerUserWidget(
-              languageOnTap: () {},
               deleteOnTap: () {},
               logOutOnTap: () {},
               languageText: Strings.language.text,

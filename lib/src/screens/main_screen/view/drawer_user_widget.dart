@@ -1,11 +1,11 @@
+import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
 
 import '../../../common/constants/text_style.dart';
-
-class DrawerUserWidget extends StatelessWidget {
-  final void Function() languageOnTap;
+enum SingingCharacter { uzbek, english, russian }
+class DrawerUserWidget extends StatefulWidget {
   final void Function() deleteOnTap;
   final void Function() logOutOnTap;
   final String languageText;
@@ -14,13 +14,81 @@ class DrawerUserWidget extends StatelessWidget {
 
   const DrawerUserWidget({
     super.key,
-    required this.languageOnTap,
     required this.deleteOnTap,
     required this.logOutOnTap,
     required this.languageText,
     required this.deleteText,
     required this.logOutText,
   });
+
+  @override
+  State<DrawerUserWidget> createState() => _DrawerUserWidgetState();
+}
+
+class _DrawerUserWidgetState extends State<DrawerUserWidget> {
+  SingingCharacter? _character = SingingCharacter.english;
+
+  languagePicker(context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Wrap(
+            children: [
+              RadioListTile<SingingCharacter>(
+                controlAffinity: ListTileControlAffinity.trailing,
+                title:  Row(
+                  children: [
+                    CircleFlag("uz", size: 30,),
+                    const Spacer(),
+                    Text(Strings.uzbek.text),
+                    const Spacer(flex: 6),
+                  ],
+                ),
+                value: SingingCharacter.uzbek,
+                groupValue: _character,
+                onChanged:(SingingCharacter? value) {
+                  _character=value;
+                },
+              ),
+              RadioListTile<SingingCharacter>(
+                controlAffinity: ListTileControlAffinity.trailing,
+                title:  Row(
+                  children: [
+                    CircleFlag("us", size: 30,),
+                    const Spacer(),
+                    Text(Strings.english.text),
+                    const Spacer(flex: 6),
+                  ],
+                ),
+                value: SingingCharacter.english,
+                groupValue: _character,
+                onChanged:(SingingCharacter? value) {
+                  _character=value;
+                },
+              ),
+              RadioListTile<SingingCharacter>(
+                controlAffinity: ListTileControlAffinity.trailing,
+                title:  Row(
+                  children: [
+                    CircleFlag("ru", size: 30,),
+                    const Spacer(),
+                    Text(Strings.russian.text),
+                    const Spacer(flex: 6),
+                  ],
+                ),
+                value: SingingCharacter.russian,
+                groupValue: _character,
+                onChanged:(SingingCharacter? value) {
+                  _character=value;
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +151,12 @@ class DrawerUserWidget extends StatelessWidget {
 
               /// Language
               CupertinoButton(
-                onPressed: languageOnTap,
+                onPressed: (){
+                  languagePicker(context);
+                  setState(() {
+
+                  });
+                },
                 child: Row(
                   children: [
                     const Icon(
@@ -93,7 +166,7 @@ class DrawerUserWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        languageText,
+                        widget.languageText,
                         textAlign: TextAlign.center,
                         style: Styles.w700,
                       ),
@@ -104,7 +177,7 @@ class DrawerUserWidget extends StatelessWidget {
 
               /// Delete account
               CupertinoButton(
-                onPressed: deleteOnTap,
+                onPressed: widget.deleteOnTap,
                 child: Row(
                   children: [
                     const Icon(
@@ -114,7 +187,7 @@ class DrawerUserWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        deleteText,
+                        widget.deleteText,
                         textAlign: TextAlign.center,
                         style: Styles.w700,
                       ),
@@ -125,7 +198,7 @@ class DrawerUserWidget extends StatelessWidget {
 
               /// Log Out
               CupertinoButton(
-                onPressed: logOutOnTap,
+                onPressed: widget.logOutOnTap,
                 child: Row(
                   children: [
                     const Icon(
@@ -135,7 +208,7 @@ class DrawerUserWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        logOutText,
+                        widget.logOutText,
                         textAlign: TextAlign.center,
                         style: Styles.w700,
                       ),
