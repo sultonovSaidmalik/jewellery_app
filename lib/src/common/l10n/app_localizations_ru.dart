@@ -146,5 +146,17 @@ class AppLocalizationsRu extends AppLocalizations {
   String get confirmCart => 'Подтвердить корзину';
 
   @override
+  String get registration => 'Регистратион';
+
+  @override
+  String get ok => 'ок';
+
+  @override
+  String get your => 'Ваш заказ принят. Администратор свяжется с вами в ближайшее время.';
+
+  @override
+  String get write => 'Запишите свое имя и номер телефона, чтобы наш администратор мог связаться с вами.';
+
+  @override
   String get signUp => 'Зарегистрироваться';
 }

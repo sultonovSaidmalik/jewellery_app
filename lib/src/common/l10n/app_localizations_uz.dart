@@ -146,5 +146,17 @@ class AppLocalizationsUz extends AppLocalizations {
   String get confirmCart => 'Confirm cart';
 
   @override
+  String get registration => 'Registration';
+
+  @override
+  String get ok => 'Ok';
+
+  @override
+  String get your => 'Sizning zakazingiz qabul qilindi. Tez orada admin sizga aloqaga chiqadi.';
+
+  @override
+  String get write => 'Adminimiz aloqaga chiqishi uchun ismingiz va no\'meringizni yozib qoldiring.';
+
+  @override
   String get signUp => 'Sign up';
 }

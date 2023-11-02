@@ -146,5 +146,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirmCart => 'Confirm cart';
 
   @override
+  String get registration => 'Registration';
+
+  @override
+  String get ok => 'Ok';
+
+  @override
+  String get your => 'Your order has been accepted. Admin will contact you soon.';
+
+  @override
+  String get write => 'Write down your name and number so that our admin can contact you.';
+
+  @override
   String get signUp => 'Sign up';
 }

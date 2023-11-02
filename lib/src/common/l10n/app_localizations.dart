@@ -377,6 +377,30 @@ abstract class AppLocalizations {
   /// **'Confirm cart'**
   String get confirmCart;
 
+  /// No description provided for @registration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get registration;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'Ok'**
+  String get ok;
+
+  /// No description provided for @your.
+  ///
+  /// In en, this message translates to:
+  /// **'Your order has been accepted. Admin will contact you soon.'**
+  String get your;
+
+  /// No description provided for @write.
+  ///
+  /// In en, this message translates to:
+  /// **'Write down your name and number so that our admin can contact you.'**
+  String get write;
+
   /// No description provided for @signUp.
   ///
   /// In en, this message translates to:

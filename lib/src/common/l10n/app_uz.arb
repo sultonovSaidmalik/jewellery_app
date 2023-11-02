@@ -46,9 +46,9 @@
    "clearCart" : "Clear Cart",
    "cart" : "Cart",
    "confirmCart" : "Confirm cart",
-    "registration" : "Registration",
-      "ok" : "Ok",
-      "your" : "Sizning zakazingiz qabul qilindi. Tez orada admin sizga aloqaga chiqadi.",
-      "write" : "Adminimiz aloqaga chiqishi uchun ismingiz va no'meringizni yozib qoldiring.",
+   "registration" : "Registration",
+   "ok" : "Ok",
+   "your" : "Sizning zakazingiz qabul qilindi. Tez orada admin sizga aloqaga chiqadi.",
+   "write" : "Adminimiz aloqaga chiqishi uchun ismingiz va no'meringizni yozib qoldiring.",
    "signUp" : "Sign up"
     }
