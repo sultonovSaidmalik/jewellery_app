@@ -4,8 +4,10 @@ import 'package:go_router/go_router.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
 import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
+import 'package:jewellery_app/src/screens/mixin/connectivity_mixin.dart';
 import 'package:jewellery_app/src/screens/view/custom_indicator.dart';
 
+import '../bloc/connectivity/connectivity_bloc.dart';
 import '../favourite_screen/bloc/favorite_bloc.dart';
 import 'bloc/home_bloc.dart';
 import 'view/view_category.dart';
@@ -25,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Strings.necklace.text,
     Strings.bracelet.text,
   ];
-  String selectedCategory =  Strings.all.text;
+  String selectedCategory = Strings.all.text;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                           Stack(
+                          Stack(
                             children: [
                               const Padding(
                                 padding: EdgeInsets.only(left: 85),
@@ -76,8 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           GestureDetector(
                             onTap: () {
                               context
-                                  .getInheritedWidgetOfExactType<
-                                      MainScope>()!
+                                  .getInheritedWidgetOfExactType<MainScope>()!
                                   .drawerController
                                   .toggle!();
                             },
@@ -91,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
 
                       /// Categories name
-                       Text(
+                      Text(
                         Strings.categories.text,
                         style: Styles.w700_25,
                       ),

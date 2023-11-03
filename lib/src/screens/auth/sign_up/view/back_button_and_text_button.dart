@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
 
-import '../../../common/constants/text_style.dart';
+import '../../../../common/constants/text_style.dart';
+
 class BackButtonAndText extends StatelessWidget {
   final void Function() textButton;
   final void Function() backButton;

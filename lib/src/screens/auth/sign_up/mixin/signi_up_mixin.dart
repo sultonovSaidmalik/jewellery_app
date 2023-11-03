@@ -1,13 +1,12 @@
 part of '../sign_up.dart';
 
 mixin SignUpMixin on State<SignUpScree> {
-
   ValueNotifier<bool> isObscure = ValueNotifier(false);
 
-  late TextEditingController controllerName ;
-  late TextEditingController controllerEmail ;
-  late TextEditingController controllerPassword ;
-  late TextEditingController controllerCPassword ;
+  late TextEditingController controllerName;
+  late TextEditingController controllerEmail;
+  late TextEditingController controllerPassword;
+  late TextEditingController controllerCPassword;
 
   @override
   void initState() {
@@ -26,8 +25,8 @@ mixin SignUpMixin on State<SignUpScree> {
     RegExp regex = RegExp(r'^[\w-]+(\.[\w-]+)*@gmail.com$');
     if (value != null && value.isEmpty) {
       return Strings.validEmail.text;
-    }else if(!regex.hasMatch(value!)){
-      return Strings.invalidEmail.text ;
+    } else if (!regex.hasMatch(value!)) {
+      return Strings.invalidEmail.text;
     }
     return null;
   }
@@ -42,7 +41,7 @@ mixin SignUpMixin on State<SignUpScree> {
   String? validatePassword(String? value) {
     if (value != null && value.isEmpty) {
       return Strings.validPassword.text;
-    } else if(value!.length < 8){
+    } else if (value!.length < 8) {
       return Strings.invalidPassword.text;
     }
     return null;
@@ -51,7 +50,7 @@ mixin SignUpMixin on State<SignUpScree> {
   String? validateCPassword(String? value) {
     if (value != null && value.isEmpty) {
       return Strings.validConfirmPassword.text;
-    } else if(controllerPassword.text != controllerCPassword.text){
+    } else if (controllerPassword.text != controllerCPassword.text) {
       return Strings.invalidConfirmPassword.text;
     }
     return null;
@@ -65,5 +64,26 @@ mixin SignUpMixin on State<SignUpScree> {
       return "Invalid phone number";
     }
     return null;
+  }
+
+  void signUpWithEmail() {
+    // if (_formKey.currentState!.validate()) {
+    //   print("Started1");
+    // } else if (_formPhone.currentState!
+    //     .validate()) {
+    //   print("Started2");
+    // }
+    // context.read<AuthBloc>().add(
+    //       AuthSignUpWithEmailEvent(
+    //         name: controllerName.text.trim(),
+    //         email: controllerEmail.text.trim(),
+    //         password: controllerPassword.text.trim(),
+    //         phone: controllerPhone.text.trim(),
+    //       ),
+    //     );
+  }
+
+  void signUpWithGoogle() {
+    // if (_formPhone.currentState!.validate()) {}
   }
 }

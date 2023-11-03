@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:jewellery_app/src/common/models/product_model.dart';
 import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
-import 'package:jewellery_app/src/screens/sign_in/sign_in.dart';
-import 'package:jewellery_app/src/screens/sign_up/sign_up.dart';
+import '../../screens/auth/sign_in/sign_in.dart';
+import '../../screens/auth/sign_up/sign_up.dart';
 import '../../screens/detail_screen/detail_screen.dart';
 
 class AppRouter {

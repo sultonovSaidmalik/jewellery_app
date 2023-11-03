@@ -30,6 +30,9 @@ dependencies:
   flutter_zoom_drawer: ^3.1.1
   cached_network_image: ^3.3.0
   circle_flags: ^3.0.1
+  internet_connection_checker: ^1.0.0+1
+  connectivity_plus: ^5.0.1
+  flutter_share: ^2.0.0
 
 dev_dependencies:
   flutter_test:

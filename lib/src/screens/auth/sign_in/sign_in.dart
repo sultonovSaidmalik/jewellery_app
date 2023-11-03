@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jewellery_app/src/common/constants/app_router.dart';
-import 'package:jewellery_app/src/common/constants/strings.dart';
-import 'view/back_button_and_text_button.dart';
-import 'view/get_started_button.dart';
-import 'view/google_button.dart';
-import 'view/text_field_password.dart';
-import 'view/text_field_widget.dart';
-import 'view/text_widget_sign_up.dart';
+import '../../../common/constants/strings.dart';
+import '../../../common/constants/text_style.dart';
+import '../sign_up/view/google_button.dart';
+import '../sign_up/view/text_field_password.dart';
+import '../sign_up/view/text_field_widget.dart';
+import 'view/sign_in_button.dart';
+import 'view/text_widget_sign_in.dart';
 
-part './mixin/signi_up_mixin.dart';
+part './mixin/sign_in_mixin.dart';
 
-class SignUpScree extends StatefulWidget {
-  const SignUpScree({super.key});
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
   @override
-  State<SignUpScree> createState() => _SignUpScreeState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
+class _SignInScreenState extends State<SignInScreen> with SignInMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,30 +33,46 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  /// Back Button  and Text
-                  BackButtonAndText(
-                    textButton: () {
-                      context.pushReplacementNamed(Routes.main);
-                    },
-                    backButton: () {
-                      context.pop();
-                    },
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const SizedBox.shrink(),
+                            /// Skip Button
+                            TextButton(
+                              onPressed: () {
+                                context.pushReplacementNamed(Routes.main);
+                              },
+                              child:  Text(
+                                Strings.skip.text,
+                                style: Styles.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+
+                        /// Text
+                         Text(
+                          Strings.login.text,
+                          style: Styles.w700_30,
+                        ),
+                        const Spacer(),
+                      ],
+                    ),
                   ),
                   Expanded(
                     flex: 8,
                     child: Form(
                       key: _formKey,
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          /// User Name
-                          TextFieldWidgets(
-                            controller: controllerName,
-                            validator: validateName,
-                            textInputAction: TextInputAction.next,
-                            hintText: Strings.name.text,
-                          ),
-                          const Spacer(flex: 2),
+                          const Spacer(flex: 5),
 
                           /// User Email
                           TextFieldWidgets(
@@ -65,7 +81,7 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                             textInputAction: TextInputAction.next,
                             hintText: Strings.email.text,
                           ),
-                          const Spacer(flex: 2),
+                          const Spacer(),
 
                           /// User Password
                           TextFieldPassword(
@@ -85,51 +101,29 @@ class _SignUpScreeState extends State<SignUpScree> with SignUpMixin {
                               color: Colors.grey,
                             ),
                           ),
-                          const Spacer(flex: 2),
-
-                          /// User Confirm Password
-                          TextFieldPassword(
-                            controller: controllerCPassword,
-                            validator: validateCPassword,
-                            textInputAction: TextInputAction.next,
-                            hintText: Strings.confirmPassword.text,
-                            obscureText: passwordSee,
-                            onTap: () {
-                              passwordSee = !passwordSee;
-                              setState(() {});
-                            },
-                            widget: Icon(
-                              passwordSee
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Colors.grey,
-                            ),
-                          ),
                           const Spacer(flex: 5),
 
-                          /// Get Start Button
-                          GetStartedButton(
+                          /// Button Sign In
+                          SignInButton(
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 print("Started1");
                               }
                             },
                           ),
-                          const Spacer(),
-
                           /// Text Sign In
-                          TextWidgetSignUp(
+                          TextWidgetSignIn(
                             onTap: () {
-                              context.pushReplacementNamed(Routes.signIn);
+                              context.pushReplacementNamed(Routes.signUp);
                             },
                           ),
-                          const Spacer(flex: 6),
+                          const Spacer(flex: 3),
 
                           /// Google Button
                           GoogleButton(
                             onTap: () {},
                           ),
-                          const Spacer(flex: 2),
+                          const Spacer(flex: 5),
                         ],
                       ),
                     ),

@@ -1,40 +1,33 @@
 import 'package:flutter/material.dart';
+import '../../../../common/constants/text_style.dart';
 
-import '../../../common/constants/text_style.dart';
 
-class TextFieldPassword extends StatelessWidget {
+class TextFieldWidgets extends StatelessWidget {
   final TextEditingController controller;
   final String? Function(String?) validator;
   final TextInputAction textInputAction;
   final String hintText;
   final TextInputType? textInputType;
-  final bool obscureText;
-  final void Function() onTap;
-  final Widget widget;
 
-  const TextFieldPassword({
+  const TextFieldWidgets({
     super.key,
     required this.controller,
     required this.validator,
     required this.textInputAction,
     required this.hintText,
-    this.textInputType, required this.obscureText, required this.onTap, required this.widget,
+    this.textInputType,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      obscureText: obscureText,
       validator: validator,
       cursorColor: Colors.white,
       textInputAction: textInputAction,
+      keyboardType: textInputType,
       style: Styles.textStyle,
       decoration: InputDecoration(
-        suffixIcon: GestureDetector(
-          onTap: onTap,
-          child: widget,
-        ),
         filled: true,
         fillColor: const Color(0xFF313131),
         border: UnderlineInputBorder(
@@ -48,6 +41,7 @@ class TextFieldPassword extends StatelessWidget {
         hintText: hintText,
         hintStyle: Styles.textStyle,
       ),
+      obscureText: false,
     );
   }
 }

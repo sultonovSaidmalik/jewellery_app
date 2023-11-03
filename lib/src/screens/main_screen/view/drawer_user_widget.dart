@@ -2,9 +2,12 @@ import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
+import 'package:jewellery_app/src/common/service/local_dara_service.dart';
 
 import '../../../common/constants/text_style.dart';
+
 enum SingingCharacter { uzbek, english, russian }
+
 class DrawerUserWidget extends StatefulWidget {
   final void Function() deleteOnTap;
   final void Function() logOutOnTap;
@@ -26,6 +29,8 @@ class DrawerUserWidget extends StatefulWidget {
 }
 
 class _DrawerUserWidgetState extends State<DrawerUserWidget> {
+  String name = LocalDataService.getUser().$1;
+  String phone = LocalDataService.getUser().$2;
   SingingCharacter? _character = SingingCharacter.english;
 
   languagePicker(context) {
@@ -37,9 +42,12 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
             children: [
               RadioListTile<SingingCharacter>(
                 controlAffinity: ListTileControlAffinity.trailing,
-                title:  Row(
+                title: Row(
                   children: [
-                    CircleFlag("uz", size: 30,),
+                    CircleFlag(
+                      "uz",
+                      size: 30,
+                    ),
                     const Spacer(),
                     Text(Strings.uzbek.text),
                     const Spacer(flex: 6),
@@ -47,15 +55,18 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
                 ),
                 value: SingingCharacter.uzbek,
                 groupValue: _character,
-                onChanged:(SingingCharacter? value) {
-                  _character=value;
+                onChanged: (SingingCharacter? value) {
+                  _character = value;
                 },
               ),
               RadioListTile<SingingCharacter>(
                 controlAffinity: ListTileControlAffinity.trailing,
-                title:  Row(
+                title: Row(
                   children: [
-                    CircleFlag("us", size: 30,),
+                    CircleFlag(
+                      "us",
+                      size: 30,
+                    ),
                     const Spacer(),
                     Text(Strings.english.text),
                     const Spacer(flex: 6),
@@ -63,15 +74,18 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
                 ),
                 value: SingingCharacter.english,
                 groupValue: _character,
-                onChanged:(SingingCharacter? value) {
-                  _character=value;
+                onChanged: (SingingCharacter? value) {
+                  _character = value;
                 },
               ),
               RadioListTile<SingingCharacter>(
                 controlAffinity: ListTileControlAffinity.trailing,
-                title:  Row(
+                title: Row(
                   children: [
-                    CircleFlag("ru", size: 30,),
+                    CircleFlag(
+                      "ru",
+                      size: 30,
+                    ),
                     const Spacer(),
                     Text(Strings.russian.text),
                     const Spacer(flex: 6),
@@ -79,8 +93,8 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
                 ),
                 value: SingingCharacter.russian,
                 groupValue: _character,
-                onChanged:(SingingCharacter? value) {
-                  _character=value;
+                onChanged: (SingingCharacter? value) {
+                  _character = value;
                 },
               ),
             ],
@@ -115,8 +129,8 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
                         style: Styles.w700_25.copyWith(color: Colors.grey),
                       ),
                       const SizedBox(height: 5),
-                      const Text(
-                        "Sarvar",
+                      Text(
+                        name,
                         style: Styles.w700,
                       ),
                     ],
@@ -138,8 +152,8 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
                         style: Styles.w700_25.copyWith(color: Colors.grey),
                       ),
                       const SizedBox(height: 5),
-                      const Text(
-                        "+998998288480",
+                      Text(
+                        phone,
                         style: Styles.w700,
                       ),
                     ],
@@ -151,11 +165,9 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
 
               /// Language
               CupertinoButton(
-                onPressed: (){
+                onPressed: () {
                   languagePicker(context);
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
                 child: Row(
                   children: [

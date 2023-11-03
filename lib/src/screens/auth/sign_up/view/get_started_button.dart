@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:jewellery_app/src/common/constants/strings.dart';
-import '../../../common/constants/text_style.dart';
-class SignInButton extends StatelessWidget {
+import '../../../../common/constants/strings.dart';
+import '../../../../common/constants/text_style.dart';
+
+class GetStartedButton extends StatelessWidget {
   final void Function()? onPressed;
-  const SignInButton({super.key, required this.onPressed});
+  const GetStartedButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class SignInButton extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              Strings.signIn.text,
+              Strings.getStarted.text,
               textAlign: TextAlign.center,
               style: Styles.w600_20,
             ),
