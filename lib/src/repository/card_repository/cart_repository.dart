@@ -37,6 +37,7 @@ class CartRepositoryImpl implements CartRepository {
     return CartModel.fromJson(jsonDecode(result));
   }
 
+  @override
   Future<bool> storeOrder(Order order) async {
     try {
       await _db
@@ -45,8 +46,9 @@ class CartRepositoryImpl implements CartRepository {
           .set(order.toJson());
       return true;
     } catch (e, s) {
+      print(e);
       debugPrint(e.toString());
-      debugPrint(e.toString());
+      debugPrint(s.toString());
       return false;
     }
   }

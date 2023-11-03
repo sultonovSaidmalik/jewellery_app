@@ -19,8 +19,13 @@ class TelegramRepositoryImpl extends TelegramRepository {
   @override
   Future<bool> sendMessage({String message = ""}) async {
     String query =
-        "https://api.telegram.org/bot${AppKeys.botToken}/sendMessage?chat_id=${AppKeys.adminId}&parse_mode=Markdown&text=$message";
-    final result = await _dio.request(query);
+        "https://api.telegram.org/bot${AppKeys.botToken}/sendMessage";
+    final result = await _dio.request(query, queryParameters: {
+      "chat_id" : AppKeys.adminId,
+      "parse_mode" : "Markdown",
+      "text" : message,
+
+    });
     if (result.statusCode == 200) {
       return true;
     }

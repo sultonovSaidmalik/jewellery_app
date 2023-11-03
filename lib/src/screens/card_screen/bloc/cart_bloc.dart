@@ -37,20 +37,19 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   void _order(CartOrderEvent event, Emitter emit) async {
     final user = LocalDataService.getUser();
-    final result = await repository.storeOrder(
-      Order(
-        orderId: const Uuid().v4(),
-        userName: user.$1,
-        userPhone: user.$2,
-        cart: cart,
-        totalPrice: cart.items
-            .map((e) => e.totalPrice)
-            .fold<num>(0, (total, element) => total += element),
-      ),
+    final order = Order(
+      orderId: const Uuid().v4(),
+      userName: user.$1,
+      userPhone: user.$2,
+      cart: cart,
+      totalPrice: cart.items
+          .map((e) => e.totalPrice)
+          .fold<num>(0, (total, element) => total += element),
     );
+    final result = await repository.storeOrder(order);
     print(result);
     if (result) {
-      await telegramRepository.sendMessage(message: "Buyurtma Berildi!");
+      await telegramRepository.sendMessage(message: order.toOrderString());
       cart = CartModel(id: const Uuid().v4(), items: []);
       await repository.saveCard(cart);
 

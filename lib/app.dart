@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jewellery_app/app_options.dart';
 import 'package:jewellery_app/src/common/constants/app_router.dart';
+import 'package:jewellery_app/src/common/l10n/app_localizations.dart';
 import 'package:jewellery_app/src/screens/auth/bloc/auth_bloc.dart';
 import 'package:jewellery_app/src/screens/favourite_screen/bloc/favorite_bloc.dart';
 import 'package:jewellery_app/src/screens/main_screen/bloc/main_bloc.dart';
@@ -40,17 +41,21 @@ class JewelleryApp extends StatelessWidget with ConnectivityMixin {
         ),
       ],
       child: ModelBinding(
-        initialModel: const AppOptions(
-          locale: Locale('uz'),
-        ),
-        child: MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData.light(useMaterial3: true),
-          darkTheme: ThemeData.dark(useMaterial3: true),
-          themeMode: ThemeMode.dark,
-          locale: const Locale('uz'),
+        initialModel: AppOptions.instance,
+        child: Builder(
+          builder: (context) {
+            return MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData.light(useMaterial3: true),
+              darkTheme: ThemeData.dark(useMaterial3: true),
+              themeMode: ThemeMode.dark,
+              locale: AppOptions.of(context).locale,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
 
-          routerConfig: AppRouter.router,
+              routerConfig: AppRouter.router,
+            );
+          }
         ),
       ),
     );

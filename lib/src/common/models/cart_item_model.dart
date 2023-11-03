@@ -22,7 +22,7 @@ class CartItem {
 
   Map<String, Object?> toJson() => {
     "id" : id,
-    "product" : product,
+    "product" : product.toJson(),
     "productCount" : productCount,
     "totalPrice" : totalPrice,
   };

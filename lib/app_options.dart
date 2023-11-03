@@ -7,9 +7,8 @@ class AppOptions extends Equatable {
     required this.locale,
   });
 
-  static AppOptions instance() {
-    return AppOptions(locale: LocalDataService.getLocale);
-  }
+  static AppOptions get instance =>  AppOptions(locale: LocalDataService.getLocale);
+
 
   final Locale locale;
 
