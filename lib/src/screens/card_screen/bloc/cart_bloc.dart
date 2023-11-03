@@ -48,14 +48,13 @@ class CartBloc extends Bloc<CartEvent, CartState> {
             .fold<num>(0, (total, element) => total += element),
       ),
     );
+    print(result);
     if (result) {
       await telegramRepository.sendMessage(message: "Buyurma Berildi!");
-      emit(
-        CartState(
-          cart: CartModel(id: const Uuid().v4(), items: []),
-          status: CartStatus.ordered,
-        ),
-      );
+      cart = CartModel(id: const Uuid().v4(), items: []);
+      await repository.saveCard(cart);
+
+      emit(state.copyWith(cart: cart, status: CartStatus.ordered));
     } else {
       emit(state.copyWith(status: CartStatus.ordered));
     }

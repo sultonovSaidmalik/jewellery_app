@@ -28,7 +28,8 @@ class AppRouter {
         },
         routes: [
           GoRoute(
-            path: 'view',
+            path: Routes.view,
+            name: Routes.view,
             builder: (context, state) {
               if (state.extra is! Product) {
                 throw GoException("Detail Screen Product Not Found");
@@ -41,6 +42,7 @@ class AppRouter {
           ),
           GoRoute(
             path: Routes.identification,
+            name: Routes.identification,
             builder: (context, state) {
               return const IdentificationScreen();
             },
@@ -77,7 +79,7 @@ class Routes {
 
   static const String splash = "/";
   static const String main = "/main";
-  static const String identification = "identification";
+  static const String identification = "main/identification";
   static const String view = "view";
   static const String signIn = "/sign_in";
   static const String signUp = "/sign_up";

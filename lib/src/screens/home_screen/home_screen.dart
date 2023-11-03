@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jewellery_app/src/common/constants/app_router.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
 import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
@@ -137,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               final product = state.products[index];
                               return ViewProduct(
                                 onPressed: () {
-                                  context.push('/view', extra: product);
+                                  context.pushNamed(Routes.view, extra: product);
                                 },
                                 product: product,
                               );

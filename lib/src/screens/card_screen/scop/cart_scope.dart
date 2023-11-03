@@ -14,8 +14,7 @@ class CartScope extends InheritedWidget {
     return oldWidget != this;
   }
 
-  factory CartScope.of(BuildContext context) {
-    return context.getElementForInheritedWidgetOfExactType<CartScope>()
-        as CartScope;
+  static CartScope? of(BuildContext context) {
+    return context.getInheritedWidgetOfExactType<CartScope>();
   }
 }

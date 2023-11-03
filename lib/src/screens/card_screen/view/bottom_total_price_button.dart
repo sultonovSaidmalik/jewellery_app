@@ -31,7 +31,7 @@ class BottomTotalPrice extends StatelessWidget {
 
             /// Confirm Cart Button
             ConfirmCartButton(
-              onTap: CartScope.of(context).onPressOrder,
+              onTap: CartScope.of(context)!.onPressOrder,
               isActive: state.cart.items.isNotEmpty,
             ),
           ],
