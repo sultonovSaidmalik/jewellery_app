@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
           }
         },
         child: const AnnotatedRegion<SystemUiOverlayStyle>(
-          value: SystemUiOverlayStyle.light,
+          value: SystemUiOverlayStyle.dark,
           child: Scaffold(
             backgroundColor: Colors.black,
             body: Stack(

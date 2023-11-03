@@ -239,6 +239,18 @@ abstract class AppLocalizations {
   /// **'Language'**
   String get language;
 
+  /// No description provided for @myData.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete My Data'**
+  String get myData;
+
+  /// No description provided for @identification.
+  ///
+  /// In en, this message translates to:
+  /// **'Identification'**
+  String get identification;
+
   /// No description provided for @delete.
   ///
   /// In en, this message translates to:
@@ -389,6 +401,18 @@ abstract class AppLocalizations {
   /// **'Ok'**
   String get ok;
 
+  /// No description provided for @product.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Ordering Right enabled'**
+  String get product;
+
+  /// No description provided for @successful.
+  ///
+  /// In en, this message translates to:
+  /// **'Successful Your identity has been verified'**
+  String get successful;
+
   /// No description provided for @your.
   ///
   /// In en, this message translates to:
@@ -400,6 +424,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Write down your name and number so that our admin can contact you.'**
   String get write;
+
+  /// No description provided for @connect.
+  ///
+  /// In en, this message translates to:
+  /// **'Not Connection...'**
+  String get connect;
+
+  /// No description provided for @after.
+  ///
+  /// In en, this message translates to:
+  /// **'After you enter your ``Name\'\' and ``Telephone Number\'\', you will be given the right to place an order.\nThis information will only be used to contact you.'**
+  String get after;
 
   /// No description provided for @signUp.
   ///

@@ -77,6 +77,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language => 'Language';
 
   @override
+  String get myData => 'Delete My Data';
+
+  @override
+  String get identification => 'Identification';
+
+  @override
   String get delete => 'Delete';
 
   @override
@@ -152,10 +158,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ok => 'Ok';
 
   @override
+  String get product => 'Product Ordering Right enabled';
+
+  @override
+  String get successful => 'Successful Your identity has been verified';
+
+  @override
   String get your => 'Your order has been accepted. Admin will contact you soon.';
 
   @override
   String get write => 'Write down your name and number so that our admin can contact you.';
+
+  @override
+  String get connect => 'Not Connection...';
+
+  @override
+  String get after => 'After you enter your ``Name\'\' and ``Telephone Number\'\', you will be given the right to place an order.\nThis information will only be used to contact you.';
 
   @override
   String get signUp => 'Sign up';

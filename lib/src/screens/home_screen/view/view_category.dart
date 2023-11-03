@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
+import 'package:jewellery_app/src/screens/home_screen/home_screen.dart';
 
 class ViewCategory extends StatelessWidget {
   const ViewCategory({
@@ -9,9 +11,9 @@ class ViewCategory extends StatelessWidget {
     required this.onPress,
   });
 
-  final String category;
-  final void Function(String category) onPress;
-  final List<String> categories;
+  final CategoryLang category;
+  final void Function(CategoryLang category) onPress;
+  final List<CategoryLang> categories;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class ViewCategory extends StatelessWidget {
                 ),
               ),
               child: Text(
-                categories[index],
+                categories[index].currentLocale(context.locale.languageCode),
                 style: Styles.w400_12,
               ),
             ),

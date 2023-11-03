@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/app_options.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/common/service/local_dara_service.dart';
 
 import '../../../common/constants/text_style.dart';
@@ -42,7 +43,7 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        Strings.userName.text,
+                        context.l10n.userName,
                         style: Styles.w700_25.copyWith(color: Colors.grey),
                       ),
                       const SizedBox(height: 5),
@@ -65,7 +66,7 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        Strings.userPhone.text,
+                        context.l10n.userPhone,
                         style: Styles.w700_25.copyWith(color: Colors.grey),
                       ),
                       const SizedBox(height: 5),
@@ -83,16 +84,16 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
               /// Language
               CupertinoButton(
                 onPressed: _onPressLang,
-                child: const Row(
+                child:  Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.language,
                       color: Colors.white,
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        "Language",
+                        context.l10n.language,
                         textAlign: TextAlign.center,
                         style: Styles.w700,
                       ),
@@ -104,16 +105,16 @@ class _DrawerUserWidgetState extends State<DrawerUserWidget> {
               /// Delete account
               CupertinoButton(
                 onPressed: _onPressDelete,
-                child: const Row(
+                child:  Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.delete,
                       color: Colors.white,
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        "Delete My Data",
+                        context.l10n.myData,
                         textAlign: TextAlign.center,
                         style: Styles.w700,
                       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 
 class AddToBasketButton extends StatelessWidget {
   const AddToBasketButton({
@@ -20,7 +21,7 @@ class AddToBasketButton extends StatelessWidget {
       ),
       child:  Center(
         child: Text(
-          Strings.addToBasket.text,
+          context.l10n.addToBasket,
           textAlign: TextAlign.center,
           style: Styles.w800_17,
         ),

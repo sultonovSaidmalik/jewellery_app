@@ -23,6 +23,8 @@
    "userPhone" : "User Phone",
    "userName" : "User Name",
    "language" : "Language",
+   "myData" : "Delete My Data",
+   "identification" : "Identification",
    "delete" : "Delete",
    "logOut" : "Log Out",
    "uzbek" : "Uzbek",
@@ -48,7 +50,11 @@
    "confirmCart" : "Confirm cart",
    "registration" : "Registration",
    "ok" : "Ok",
+   "product" : "Product Ordering Right enabled",
+   "successful" : "Successful Your identity has been verified",
    "your" : "Your order has been accepted. Admin will contact you soon.",
    "write" : "Write down your name and number so that our admin can contact you.",
+   "connect" : "Not Connection...",
+   "after" : "After you enter your ``Name'' and ``Telephone Number'', you will be given the right to place an order.\nThis information will only be used to contact you.",
    "signUp" : "Sign up"
    }

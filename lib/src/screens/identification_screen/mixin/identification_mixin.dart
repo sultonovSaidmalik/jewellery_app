@@ -18,7 +18,7 @@ mixin IdentificationMixin on State<IdentificationScreen> {
 
   String? validateName(String? value) {
     if (value != null && value.isEmpty) {
-      return Strings.validName.text;
+      return context.l10n.validName;
     }
     return null;
   }
@@ -26,9 +26,9 @@ mixin IdentificationMixin on State<IdentificationScreen> {
   String? validatePhone(String? value) {
     RegExp regex = RegExp(r'(^\+998\d{9})');
     if (value != null && value.isEmpty) {
-      return Strings.validPhone.text;
+      return context.l10n.validPhone;
     } else if (!regex.hasMatch(value!)) {
-      return Strings.invalidPhone.text;
+      return context.l10n.invalidPhone;
     }
     return null;
   }
@@ -41,7 +41,7 @@ mixin IdentificationMixin on State<IdentificationScreen> {
         return AlertDialog(
           content: SingleChildScrollView(
             child: Text(
-              Strings.your.text,
+              context.l10n.your,
               style: Styles.w400_15.copyWith(
                 color: Colors.black,
               ),
@@ -49,7 +49,7 @@ mixin IdentificationMixin on State<IdentificationScreen> {
           ),
           actions: <Widget>[
             TextButton(
-              child:  Text(Strings.ok.text),
+              child:  Text(context.l10n.ok),
               onPressed: () {
                 context.pushReplacementNamed(Routes.main);
               },

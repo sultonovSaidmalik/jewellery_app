@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/common/models/cart_item_model.dart';
 import 'package:jewellery_app/src/screens/card_screen/bloc/cart_bloc.dart';
 import 'package:jewellery_app/src/screens/detail_screen/view/add_button_inc_dec.dart';
@@ -116,7 +117,7 @@ class _DetailScreenState extends State<DetailScreen>
                     /// Explanation Text
 
                     Text(
-                      Strings.description.text,
+                      context.l10n.description,
                       style: Styles.w500_19,
                     ),
                     const SizedBox(height: 15),
@@ -146,11 +147,11 @@ class _DetailScreenState extends State<DetailScreen>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                Strings.price.text,
+                                context.l10n.price,
                                 style: Styles.w400_15,
                               ),
                               Text(
-                                "${(widget.product.productPrice ?? 0)} ${Strings.som.text}",
+                                "${(widget.product.productPrice ?? 0)} ${context.l10n.som}",
                                 style: Styles.w700_19,
                               )
                             ],

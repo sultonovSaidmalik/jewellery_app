@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 
 import '../../../common/constants/text_style.dart';
 
@@ -21,7 +22,7 @@ class ConfirmCartButton extends StatelessWidget {
       ),
       onPressed: onTap,
       child: Text(
-        Strings.confirmCart.text,
+        context.l10n.confirmCart,
         textAlign: TextAlign.center,
         style: Styles.w800,
       ),

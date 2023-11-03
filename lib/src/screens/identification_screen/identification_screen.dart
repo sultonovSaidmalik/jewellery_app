@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/common/service/local_dara_service.dart';
 import 'package:jewellery_app/src/common/utils/utils.dart';
 import 'package:jewellery_app/src/screens/mixin/connectivity_mixin.dart';
@@ -55,7 +56,7 @@ class _IdentificationScreenState extends State<IdentificationScreen>
                                   context.pushReplacementNamed(Routes.main);
                                 },
                                 child: Text(
-                                  Strings.skip.text,
+                                  context.l10n.skip,
                                   style: Styles.w400,
                                 ),
                               ),
@@ -65,14 +66,14 @@ class _IdentificationScreenState extends State<IdentificationScreen>
 
                           /// Text
                           Text(
-                            Strings.registration.text,
+                            context.l10n.registration,
                             style: Styles.w700_30,
                           ),
                           const Spacer(),
 
                           /// Text
-                          const Text(
-                            "Siz `Ism` vs `Telefon Raqam` kiritganingizdan So'ng Sizga Buyurma berish Huqi Beriladi \nBu Malumotlarni Faqatgina Siz bilan Aloqaga Chiqish Uchun Foydalaniladi",
+                           Text(
+                           context.l10n.after,
                             style: Styles.w400_15,
                           ),
                         ],
@@ -91,7 +92,7 @@ class _IdentificationScreenState extends State<IdentificationScreen>
                               controller: controllerName,
                               validator: validateName,
                               textInputAction: TextInputAction.next,
-                              hintText: Strings.name.text,
+                              hintText: context.l10n.name,
                             ),
                             const Spacer(),
 
@@ -101,7 +102,7 @@ class _IdentificationScreenState extends State<IdentificationScreen>
                               validator: validatePhone,
                               textInputAction: TextInputAction.next,
                               textInputType: TextInputType.phone,
-                              hintText: Strings.phone.text,
+                              hintText: context.l10n.phone,
                             ),
                             const Spacer(flex: 8),
                             RegistrationButton(
@@ -114,11 +115,11 @@ class _IdentificationScreenState extends State<IdentificationScreen>
                                   if (context.mounted) {
                                     AppUtils.msg(
                                       context,
-                                      "Muvaffaqiyatli Shaxsingizni tasdiqlandi",
+                                      context.l10n.successful,
                                     );
                                     AppUtils.msg(
                                       context,
-                                      "Maxsulot Buyurma berish Huquqi yoqildi",
+                                      context.l10n.product,
                                     );
 
                                     context.pop();

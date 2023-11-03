@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/screens/card_screen/bloc/cart_bloc.dart';
 import 'package:jewellery_app/src/screens/card_screen/scop/cart_scope.dart';
 
@@ -21,9 +22,9 @@ class BottomTotalPrice extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(Strings.total.text, style: Styles.w400),
+                Text(context.l10n.total, style: Styles.w400),
                 Text(
-                  '${state.cart.items.map((e) => e.totalPrice).fold<num>(0, (total, element) => total += element)} ${Strings.som.text}',
+                  '${state.cart.items.map((e) => e.totalPrice).fold<num>(0, (total, element) => total += element)} ${context.l10n.som}',
                   style: Styles.w700,
                 ),
               ],

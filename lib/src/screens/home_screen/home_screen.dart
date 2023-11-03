@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:jewellery_app/src/common/constants/app_router.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
 import 'package:jewellery_app/src/screens/mixin/connectivity_mixin.dart';
 import 'package:jewellery_app/src/screens/view/custom_indicator.dart';
@@ -13,7 +14,7 @@ import '../favourite_screen/bloc/favorite_bloc.dart';
 import 'bloc/home_bloc.dart';
 import 'view/view_category.dart';
 import 'view/view_product.dart';
-
+part './mixin/home_mixin.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -21,14 +22,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  List<String> categories = [
-    Strings.all.text,
-    Strings.ring.text,
-    Strings.necklace.text,
-    Strings.bracelet.text,
-  ];
-  String selectedCategory = Strings.all.text;
+class _HomeScreenState extends State<HomeScreen>  with HomeMixin{
+
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               Text(
-                                Strings.eliteDiamonds.text,
+                                context.l10n.eliteDiamonds,
                                 style: Styles.w400_60,
                               ),
                             ],
@@ -94,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       /// Categories name
                       Text(
-                        Strings.categories.text,
+                        context.l10n.categories,
                         style: Styles.w700_25,
                       ),
                       const SizedBox(height: 15),
@@ -103,14 +98,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       BlocBuilder<HomeBloc, HomeState>(
                         builder: (context, state) {
                           return ViewCategory(
-                            categories: categories,
+                            categories: categoryLang,
                             category: selectedCategory,
-                            onPress: (String category) {
+                            onPress: (category) {
                               selectedCategory = category;
                               context
                                   .read<HomeBloc>()
                                   .add(HomeGetCategoryProductEvent(
-                                    category: category,
+                                    category: category.forDB,
                                   ));
                             },
                           );

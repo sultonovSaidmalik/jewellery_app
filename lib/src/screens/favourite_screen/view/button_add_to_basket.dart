@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 class ButtonAddToBasket extends StatelessWidget {
   final void Function()? onTap;
   const ButtonAddToBasket({super.key , required this.onTap});
@@ -20,7 +21,7 @@ class ButtonAddToBasket extends StatelessWidget {
         ),
         child:   Center(
           child: Text(
-            Strings.addToBasket.text,
+            context.l10n.addToBasket,
             style: Styles.w800_13,
           ),
         ),

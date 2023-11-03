@@ -77,6 +77,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get language => 'Язык';
 
   @override
+  String get myData => 'Удалить мои данные';
+
+  @override
+  String get identification => 'Идентификация';
+
+  @override
   String get delete => 'Удалить';
 
   @override
@@ -152,10 +158,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get ok => 'ок';
 
   @override
+  String get product => 'Право на заказ продукции включено';
+
+  @override
+  String get successful => 'Успешно. Ваша личность подтверждена.';
+
+  @override
   String get your => 'Ваш заказ принят. Администратор свяжется с вами в ближайшее время.';
 
   @override
   String get write => 'Запишите свое имя и номер телефона, чтобы наш администратор мог связаться с вами.';
+
+  @override
+  String get connect => 'Не соединение...';
+
+  @override
+  String get after => 'После того, как вы введете свое «Имя» и «Номер телефона», вам будет предоставлено право разместить заказ.\nЭта информация будет использоваться только для связи с вами.';
 
   @override
   String get signUp => 'Зарегистрироваться';

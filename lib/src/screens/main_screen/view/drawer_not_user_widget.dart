@@ -1,9 +1,8 @@
-import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jewellery_app/src/common/constants/app_router.dart';
-import 'package:jewellery_app/src/common/constants/strings.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import '../../../common/constants/text_style.dart';
 import '../../../common/utils/utils.dart';
 
@@ -37,16 +36,16 @@ class _DrawerNotUserWidgetState extends State<DrawerNotUserWidget> {
               /// Language
               CupertinoButton(
                 onPressed: _onPressLang,
-                child: const Row(
+                child:  Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.language,
                       color: Colors.white,
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        "Language",
+                        context.l10n.language,
                         textAlign: TextAlign.center,
                         style: Styles.w700,
                       ),
@@ -58,16 +57,16 @@ class _DrawerNotUserWidgetState extends State<DrawerNotUserWidget> {
               /// Sign In
               CupertinoButton(
                 onPressed: _onPressIdentification,
-                child: const Row(
+                child:  Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.create,
                       color: Colors.white,
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        "Identification",
+                        context.l10n.identification,
                         textAlign: TextAlign.center,
                         style: Styles.w700,
                       ),

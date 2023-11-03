@@ -5,43 +5,43 @@ class AppLocalizationsUz extends AppLocalizations {
   AppLocalizationsUz([String locale = 'uz']) : super(locale);
 
   @override
-  String get already => 'Already have an account?';
+  String get already => 'Sizning hisobingiz mavjudmi?';
 
   @override
-  String get don => 'Don\'t have an account?';
+  String get don => 'Sizning hisobingiz mavjud emasmi?';
 
   @override
-  String get getStarted => 'Get started';
+  String get getStarted => 'Boshlash';
 
   @override
-  String get skip => 'Skip';
+  String get skip => 'Keyingisi';
 
   @override
-  String get create => 'Create\nAccount';
+  String get create => 'Hisob\nYaratish';
 
   @override
   String get email => 'you@exaple.com';
 
   @override
-  String get password => 'Password';
+  String get password => 'Parol';
 
   @override
-  String get confirmPassword => 'Confirm Password';
+  String get confirmPassword => 'Parolni tastiqlash';
 
   @override
-  String get name => 'Name';
+  String get name => 'Ism';
 
   @override
-  String get phone => 'Phone';
+  String get phone => 'Telefon';
 
   @override
   String get validEmail => 'Write your email';
 
   @override
-  String get validName => 'Write your name';
+  String get validName => 'Ismingizni Yozing';
 
   @override
-  String get validPhone => 'Write your phone';
+  String get validPhone => 'Telefon raqamingizni yozing';
 
   @override
   String get validPassword => 'Write your password';
@@ -53,7 +53,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get invalidEmail => 'Invalid Email';
 
   @override
-  String get invalidPhone => 'Invalid phone number';
+  String get invalidPhone => 'Telefon raqamingiz noto\'gri';
 
   @override
   String get invalidPassword => 'Password must be at least 8 characters';
@@ -62,25 +62,31 @@ class AppLocalizationsUz extends AppLocalizations {
   String get invalidConfirmPassword => 'your password does not match';
 
   @override
-  String get signIn => 'Sign In';
+  String get signIn => 'Hisobga Kirish';
 
   @override
   String get login => 'Log-in';
 
   @override
-  String get userPhone => 'User Phone';
+  String get userPhone => 'Foydalanuvchi Raqami';
 
   @override
-  String get userName => 'User Name';
+  String get userName => 'Foydalanuvchi Ismi';
 
   @override
-  String get language => 'Language';
+  String get language => 'Til';
 
   @override
-  String get delete => 'Delete';
+  String get myData => 'Mening ma\'lumotlarimni o\'chirish';
 
   @override
-  String get logOut => 'Log Out';
+  String get identification => 'Identifikatsiya';
+
+  @override
+  String get delete => 'O\'chirish';
+
+  @override
+  String get logOut => 'Hisobdan chiqish';
 
   @override
   String get uzbek => 'Uzbek';
@@ -92,70 +98,82 @@ class AppLocalizationsUz extends AppLocalizations {
   String get russian => 'Russian';
 
   @override
-  String get all => 'All';
+  String get all => 'Hammasi';
 
   @override
-  String get ring => 'Ring';
+  String get ring => 'Uzuk';
 
   @override
-  String get necklace => 'Necklace';
+  String get necklace => 'Marjon';
 
   @override
-  String get bracelet => 'Bracelet';
+  String get bracelet => 'Bilaguzuk';
 
   @override
   String get eliteDiamonds => 'Elite Diamonds';
 
   @override
-  String get categories => 'Categories';
+  String get categories => 'Kategoriyalar';
 
   @override
   String get som => 'so`m';
 
   @override
-  String get addToBasket => 'Add to Basket';
+  String get addToBasket => 'Savatga Qoshish';
 
   @override
-  String get description => 'Description';
+  String get description => 'Tavsif';
 
   @override
-  String get price => 'Price';
+  String get price => 'Narxi';
 
   @override
-  String get favourite => 'Favourite';
+  String get favourite => 'Sevimli';
 
   @override
-  String get removed => 'Removed from favorites!';
+  String get removed => 'Sevimlidan Olib tashlash!';
 
   @override
-  String get cartIsEmpty => 'Cart is empty';
+  String get cartIsEmpty => 'Savat Bo\'sh';
 
   @override
-  String get cartRemoved => 'Cart removed!';
+  String get cartRemoved => 'Savat Tozalandi!';
 
   @override
-  String get total => 'Total';
+  String get total => 'Umumiy';
 
   @override
-  String get clearCart => 'Clear Cart';
+  String get clearCart => 'Savatni Tozalash';
 
   @override
-  String get cart => 'Cart';
+  String get cart => 'Savat';
 
   @override
-  String get confirmCart => 'Confirm cart';
+  String get confirmCart => 'Savatni Tastiqlash';
 
   @override
-  String get registration => 'Registration';
+  String get registration => 'Roʻyxatdan oʻtish';
 
   @override
   String get ok => 'Ok';
+
+  @override
+  String get product => 'Maxsulot Buyurtma berish Huquqi yoqildi';
+
+  @override
+  String get successful => 'Muvaffaqiyatli Shaxsingizni tasdiqlandi';
 
   @override
   String get your => 'Sizning zakazingiz qabul qilindi. Tez orada admin sizga aloqaga chiqadi.';
 
   @override
   String get write => 'Adminimiz aloqaga chiqishi uchun ismingiz va no\'meringizni yozib qoldiring.';
+
+  @override
+  String get connect => 'Ulanish emas...';
+
+  @override
+  String get after => 'Siz `Ism` va `Telefon Raqam` kiritganingizdan So\'ng Sizga Buyurma berish Huqi Beriladi \nBu Malumotlarni Faqatgina Siz bilan Aloqaga Chiqish Uchun Foydalaniladi';
 
   @override
   String get signUp => 'Sign up';

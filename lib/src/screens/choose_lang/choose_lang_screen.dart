@@ -50,7 +50,7 @@ class _ChooseLangState extends State<ChooseLang> {
                   ),
                   const SizedBox(height: 16),
                   CustomLangButton(
-                    image: "en",
+                    image: "us",
                     label: 'English',
                     onPressed: () => _chooseLang("en"),
                   ),

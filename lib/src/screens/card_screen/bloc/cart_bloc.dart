@@ -50,7 +50,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     );
     print(result);
     if (result) {
-      await telegramRepository.sendMessage(message: "Buyurma Berildi!");
+      await telegramRepository.sendMessage(message: "Buyurtma Berildi!");
       cart = CartModel(id: const Uuid().v4(), items: []);
       await repository.saveCard(cart);
 

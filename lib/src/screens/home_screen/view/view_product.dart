@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/common/ext/product_ext.dart';
 import 'package:jewellery_app/src/screens/favourite_screen/bloc/favorite_bloc.dart';
 
@@ -95,7 +95,7 @@ class ViewProduct extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Text(
-                '${product.productPrice ?? 0} ${Strings.som.text}',
+                '${product.productPrice ?? 0} ${context.l10n.som}',
                 style: Styles.w700_15
               ),
             ],

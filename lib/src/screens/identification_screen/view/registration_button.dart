@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:jewellery_app/src/common/constants/strings.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import '../../../common/constants/text_style.dart';
 class RegistrationButton extends StatelessWidget {
   final void Function()? onPressed;
@@ -21,7 +22,7 @@ class RegistrationButton extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              Strings.registration.text,
+              context.l10n.registration,
               textAlign: TextAlign.center,
               style: Styles.w600_20,
             ),
