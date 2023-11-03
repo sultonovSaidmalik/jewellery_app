@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 import '../../common/models/product_model.dart';
+import '../folder/folder.dart';
 
 abstract interface class ProductRepository {
   const ProductRepository();
@@ -103,7 +104,4 @@ class ProductRepositoryImpl extends ProductRepository {
   }
 }
 
-enum Folder {
-  products,
-  images,
-}
+

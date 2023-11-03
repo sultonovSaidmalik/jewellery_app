@@ -2,7 +2,6 @@ import 'cart_model.dart';
 
 class Order {
   String? orderId;
-  String? userId;
   String? userName;
   String? userPhone;
   CartModel? cart;
@@ -10,7 +9,6 @@ class Order {
 
   Order({
     required this.orderId,
-    required this.userId,
     required this.userName,
     required this.userPhone,
     required this.cart,
@@ -19,7 +17,6 @@ class Order {
 
   factory Order.fromJson(Map<String, Object?> json) => Order(
       orderId : json["orderId"] as String,
-      userId : json["userId"] as String,
       userName : json["userName"] as String,
       userPhone : json["userPhone"] as String,
       cart : CartModel.fromJson(json["cart"] as Map<String, Object?>),
@@ -28,7 +25,6 @@ class Order {
 
   Map<String, Object?> toJson() => {
     "orderId" : orderId,
-    "userId" : userId,
     "userName" : userName,
     "userPhone" : userPhone,
     "cart" : cart!.toJson(),
@@ -37,7 +33,7 @@ class Order {
 
   @override
   String toString() {
-    return 'Order{orderId: $orderId, userId: $userId, userName: $userName, userPhone: $userPhone, cart: $cart, totalPrice: $totalPrice}';
+    return 'Order{orderId: $orderId, userName: $userName, userPhone: $userPhone, cart: $cart, totalPrice: $totalPrice}';
   }
 
   @override
@@ -46,7 +42,6 @@ class Order {
       other is Order &&
           runtimeType == other.runtimeType &&
           orderId == other.orderId &&
-          userId == other.userId &&
           userName == other.userName &&
           userPhone == other.userPhone &&
           cart == other.cart &&
@@ -55,7 +50,6 @@ class Order {
   @override
   int get hashCode =>
       orderId.hashCode ^
-      userId.hashCode ^
       userName.hashCode ^
       userPhone.hashCode ^
       cart.hashCode ^

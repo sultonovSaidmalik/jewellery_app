@@ -11,17 +11,17 @@ import '../bloc/connectivity/connectivity_bloc.dart';
 import 'view/registration_button.dart';
 import 'view/text_field_widget_registration.dart';
 
-part './mixin/registration_mixin.dart';
+part './mixin/identification_mixin.dart';
 
-class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen({super.key});
+class IdentificationScreen extends StatefulWidget {
+  const IdentificationScreen({super.key});
 
   @override
-  State<RegistrationScreen> createState() => _RegistrationScreenState();
+  State<IdentificationScreen> createState() => _IdentificationScreenState();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen>
-    with RegistrationMixin, ConnectivityMixin {
+class _IdentificationScreenState extends State<IdentificationScreen>
+    with IdentificationMixin, ConnectivityMixin {
   @override
   Widget build(BuildContext context) {
     return BlocListener<ConnectivityBloc, bool>(
@@ -71,8 +71,8 @@ class _RegistrationScreenState extends State<RegistrationScreen>
                           const Spacer(),
 
                           /// Text
-                          Text(
-                            Strings.write.text,
+                          const Text(
+                            "Siz `Ism` vs `Telefon Raqam` kiritganingizdan So'ng Sizga Buyurma berish Huqi Beriladi \nBu Malumotlarni Faqatgina Siz bilan Aloqaga Chiqish Uchun Foydalaniladi",
                             style: Styles.w400_15,
                           ),
                         ],
@@ -105,16 +105,24 @@ class _RegistrationScreenState extends State<RegistrationScreen>
                             ),
                             const Spacer(flex: 8),
                             RegistrationButton(
-                              onPressed: () async{
+                              onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
                                   await LocalDataService.setUser(
                                     controllerName.text.trim(),
                                     controllerPhone.text.trim(),
                                   );
-                                  AppUtils.msg(
-                                    context,
-                                    "Muvaffaqiyatli Shaxsingizni Tasdiqladingiz Bu Malumotlarni Faqatgina Siz bilan Aloqaga Chiqish Uchun Foydalaniladi",
-                                  );
+                                  if (context.mounted) {
+                                    AppUtils.msg(
+                                      context,
+                                      "Muvaffaqiyatli Shaxsingizni tasdiqlandi",
+                                    );
+                                    AppUtils.msg(
+                                      context,
+                                      "Maxsulot Buyurma berish Huquqi yoqildi",
+                                    );
+
+                                    context.pop();
+                                  }
                                 }
                               },
                             ),

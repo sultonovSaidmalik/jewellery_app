@@ -1,6 +1,6 @@
-part of '../registration_screen.dart';
+part of '../identification_screen.dart';
 
-mixin RegistrationMixin on State<RegistrationScreen> {
+mixin IdentificationMixin on State<IdentificationScreen> {
   ValueNotifier<bool> isObscure = ValueNotifier(false);
 
   late TextEditingController controllerName;

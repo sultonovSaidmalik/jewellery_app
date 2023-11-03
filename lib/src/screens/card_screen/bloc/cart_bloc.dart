@@ -1,5 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jewellery_app/src/common/models/order_model.dart';
+import 'package:jewellery_app/src/common/service/local_dara_service.dart';
+import 'package:jewellery_app/src/repository/telegram_repository/telegram_repository.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../../common/models/cart_item_model.dart';
 import '../../../common/models/cart_model.dart';
@@ -11,10 +15,12 @@ part 'cart_state.dart';
 
 class CartBloc extends Bloc<CartEvent, CartState> {
   CartRepository repository;
+  TelegramRepository telegramRepository;
   CartModel cart;
 
   CartBloc(this.cart)
       : repository = CartRepositoryImpl(),
+        telegramRepository = TelegramRepositoryImpl(),
         super(CartState(cart: cart, status: CartStatus.initial)) {
     on<CartEvent>((event, emit) => switch (event) {
           CartAddProductEvent e => _addProduct(e, emit),
@@ -22,11 +28,39 @@ class CartBloc extends Bloc<CartEvent, CartState> {
           CartDecrementProductEvent e => _productDecrement(e, emit),
           CartDeleteProductEvent e => _productDelete(e, emit),
           CartClearEvent e => _clearCart(e, emit),
+          CartOrderEvent e => _order(e, emit),
           _ => () {},
         });
   }
 
   // Bloc Methods
+
+  void _order(CartOrderEvent event, Emitter emit) async {
+    final user = LocalDataService.getUser();
+    final result = await repository.storeOrder(
+      Order(
+        orderId: const Uuid().v4(),
+        userName: user.$1,
+        userPhone: user.$2,
+        cart: cart,
+        totalPrice: cart.items
+            .map((e) => e.totalPrice)
+            .fold<num>(0, (total, element) => total += element),
+      ),
+    );
+    if (result) {
+      await telegramRepository.sendMessage(message: "Buyurma Berildi!");
+      emit(
+        CartState(
+          cart: CartModel(id: const Uuid().v4(), items: []),
+          status: CartStatus.ordered,
+        ),
+      );
+    } else {
+      emit(state.copyWith(status: CartStatus.ordered));
+    }
+  }
+
   void _addProduct(CartAddProductEvent event, Emitter emit) async {
     emit(state.copyWith(status: CartStatus.loading));
     bool have = false;
@@ -75,7 +109,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   void _clearCart(CartClearEvent event, Emitter emit) async {
     emit(state.copyWith(status: CartStatus.loading));
-    if(cart.items.isEmpty) {
+    if (cart.items.isEmpty) {
       emit(state.copyWith(status: CartStatus.clearCartEmpty));
       return;
     }

@@ -33,6 +33,8 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   connectivity_plus: ^5.0.1
   flutter_share: ^2.0.0
+  flutter_native_splash: ^2.3.5
+  firebase_crashlytics: ^3.4.3
 
 dev_dependencies:
   flutter_test:

@@ -71,20 +71,8 @@ class _MainScreenState extends State<MainScreen> with ConnectivityMixin {
           valueListenable: LocalDataService.isUserListenable,
           builder: (BuildContext context, value, Widget? child) {
             return (value.get("isUser", defaultValue: false)
-                ? DrawerUserWidget(
-                    deleteOnTap: () {},
-                    logOutOnTap: () {},
-                    languageText: Strings.language.text,
-                    deleteText: Strings.delete.text,
-                    logOutText: Strings.logOut.text,
-                  )
-                : DrawerNotUserWidget(
-                    signInOnTap: () {
-                      context.pushReplacementNamed(Routes.signIn);
-                    },
-                    languageText: Strings.language.text,
-                    signInText: Strings.signIn.text,
-                  ));
+                ? const DrawerUserWidget()
+                : const DrawerNotUserWidget());
           },
         ),
       ),

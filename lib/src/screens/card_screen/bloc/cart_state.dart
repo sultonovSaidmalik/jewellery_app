@@ -10,6 +10,8 @@ enum CartStatus {
   deletedSuccess,
   clearCart,
   clearCartEmpty,
+  ordered,
+  orderError,
 }
 
 class CartState extends Equatable {

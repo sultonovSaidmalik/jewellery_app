@@ -1,5 +1,10 @@
+import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
+
+import '../../../app_options.dart';
+import '../constants/strings.dart';
+import '../service/local_dara_service.dart';
 
 class AppUtils {
   AppUtils._();
@@ -34,5 +39,86 @@ class AppUtils {
           chooserTitle: chooserTitle,
         )) ??
         false;
+  }
+
+  static Future<void> languagePicker(context) async {
+    await showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return ValueListenableBuilder(
+          valueListenable: LocalDataService.localeListenable,
+          builder: (context, box, __) {
+            String locale = box.get("locale", defaultValue: "uz") as String;
+            return Wrap(
+              children: [
+                ListTile(
+                  contentPadding: const EdgeInsets.only(left: 15, right: 40),
+                  leading: CircleFlag(
+                    "uz",
+                    size: 30,
+                  ),
+                  onTap: () {
+                    AppOptions.update(
+                      context,
+                      AppOptions.of(context)
+                          .copyWith(locale: const Locale("uz")),
+                    );
+                  },
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  title: Text(Strings.uzbek.text),
+                  trailing: Icon(
+                    locale == "uz" ? Icons.circle : Icons.circle_outlined,
+                  ),
+                ),
+                ListTile(
+                  contentPadding: const EdgeInsets.only(left: 15, right: 40),
+                  leading: CircleFlag(
+                    "us",
+                    size: 30,
+                  ),
+                  onTap: () {
+                    AppOptions.update(
+                      context,
+                      AppOptions.of(context)
+                          .copyWith(locale: const Locale("en")),
+                    );
+                  },
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  title: Text(Strings.english.text),
+                  trailing: Icon(
+                    locale == "en" ? Icons.circle : Icons.circle_outlined,
+                  ),
+                ),
+                ListTile(
+                  contentPadding: const EdgeInsets.only(left: 15, right: 40),
+                  leading: CircleFlag(
+                    "ru",
+                    size: 30,
+                  ),
+                  onTap: () {
+                    AppOptions.update(
+                      context,
+                      AppOptions.of(context)
+                          .copyWith(locale: const Locale("ru")),
+                    );
+                  },
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  title: Text(Strings.russian.text),
+                  trailing: Icon(
+                    locale == "ru" ? Icons.circle : Icons.circle_outlined,
+                  ),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
   }
 }

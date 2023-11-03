@@ -1,10 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:jewellery_app/src/common/service/local_dara_service.dart';
 
 class AppOptions extends Equatable {
   const AppOptions({
     required this.locale,
   });
+
+  static AppOptions instance() {
+    return AppOptions(locale: LocalDataService.getLocale);
+  }
 
   final Locale locale;
 
@@ -66,8 +71,9 @@ class _ModelBindingState extends State<ModelBinding> {
     currentModel = widget.initialModel;
   }
 
-  void updateModel(AppOptions newModel) {
+  void updateModel(AppOptions newModel) async{
     if (newModel != currentModel) {
+      await LocalDataService.setLocale(newModel.locale);
       setState(() {
         currentModel = newModel;
       });

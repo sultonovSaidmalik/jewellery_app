@@ -6,6 +6,7 @@ import 'package:jewellery_app/src/screens/auth/bloc/auth_bloc.dart';
 import 'package:jewellery_app/src/screens/favourite_screen/bloc/favorite_bloc.dart';
 import 'package:jewellery_app/src/screens/main_screen/bloc/main_bloc.dart';
 import 'package:jewellery_app/src/screens/mixin/connectivity_mixin.dart';
+import 'package:jewellery_app/src/screens/splash/bloc/splash_bloc.dart';
 import 'src/common/service/service_locator.dart';
 import 'src/repository/card_repository/cart_repository.dart';
 import 'src/repository/product_repository/product_repository.dart';
@@ -22,6 +23,7 @@ class JewelleryApp extends StatelessWidget with ConnectivityMixin {
       providers: [
         BlocProvider<MainBloc>(create: (context) => MainBloc()),
         BlocProvider<AuthBloc>(create: (context) => AuthBloc()),
+        BlocProvider<SplashBloc>(create: (context) => SplashBloc()),
         BlocProvider<ConnectivityBloc>(create: (context) => ConnectivityBloc()),
         BlocProvider(create: (context) {
           final cart = sl<CartRepository>().getCard();
@@ -47,6 +49,7 @@ class JewelleryApp extends StatelessWidget with ConnectivityMixin {
           darkTheme: ThemeData.dark(useMaterial3: true),
           themeMode: ThemeMode.light,
           locale: const Locale('uz'),
+
           routerConfig: AppRouter.router,
         ),
       ),

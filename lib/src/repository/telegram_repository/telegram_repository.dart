@@ -4,7 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:jewellery_app/src/common/constants/app_keys.dart';
 
 abstract interface class TelegramRepository {
-  Future<bool> sendMessage();
+  Future<bool> sendMessage({String message = ""});
+
   Future<bool> sendMedia({String? url, String message = ""});
 }
 
