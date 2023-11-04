@@ -1,8 +1,6 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
 import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/common/models/cart_item_model.dart';
@@ -15,7 +13,6 @@ import '../bloc/connectivity/connectivity_bloc.dart';
 import 'view/add_to_basket_button.dart';
 import 'view/animatedCircleContainer.dart';
 import 'view/back_button.dart';
-import 'view/favourite_share_buttons.dart';
 
 part './mixin/detail_mixin.dart';
 
@@ -62,9 +59,11 @@ class _DetailScreenState extends State<DetailScreen>
                                     bottomLeft: Radius.circular(30),
                                     bottomRight: Radius.circular(30),
                                   ),
-                                  child: Image(
-                                    image: NetworkImage(image),
+                                  child: CachedNetworkImage(
+                                    imageUrl: image,
                                     fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: double.infinity,
                                   ),
                                 ),
                               )
