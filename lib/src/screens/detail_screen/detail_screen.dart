@@ -64,6 +64,10 @@ class _DetailScreenState extends State<DetailScreen>
                                     fit: BoxFit.cover,
                                     width: double.infinity,
                                     height: double.infinity,
+                                    placeholder: (context, url) => const Icon(
+                                      Icons.image,
+                                      color: Colors.grey,
+                                    ),
                                   ),
                                 ),
                               )
