@@ -15,13 +15,14 @@ class _ChooseLangState extends State<ChooseLang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Stack(
         children: [
           Positioned(
             left: 16,
             top: 108,
             child: Image.asset(
-              "assets/images/img.png",
+              "assets/icons/ic_app_icons.jpg",
               width: 148,
               height: 132,
             ),

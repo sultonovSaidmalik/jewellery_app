@@ -19,7 +19,7 @@ class CustomLangButton extends StatelessWidget {
   Widget build(BuildContext context) => ElevatedButton(
     style: ElevatedButton.styleFrom(
       padding: EdgeInsets.symmetric(horizontal: 16),
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).backgroundColor ,
       minimumSize: const Size(double.infinity, 64),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
@@ -33,7 +33,7 @@ class CustomLangButton extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: 15,
             fontWeight: FontWeight.w600,
           ),
