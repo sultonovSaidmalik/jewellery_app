@@ -60,7 +60,7 @@ class WidgetsProductDescription extends StatelessWidget {
               children: [
                 /// Price
                 Text(
-                  product.productPrice.toString(),
+                  "${product.productPrice} so'm",
                   style: Styles.w700_20,
                 ),
                 BlocBuilder<CartBloc, CartState>(
