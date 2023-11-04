@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             body: Stack(
               children: [
                 Center(
-                  child: Icon(Icons.ac_unit, color: Colors.white,),
+                  child: Image(image: AssetImage("assets/icons/ic_app_icons.jpg")),
                 ),
                 Positioned(
                   bottom: 80,

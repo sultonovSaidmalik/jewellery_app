@@ -53,7 +53,7 @@ flutter:
   fonts:
     - family: Dorsa
       fonts:
-        - asset: assets/fonts/Dorsa-Regular.ttf
+        - asset: assets/fonts/YoungSerif-Regular.ttf
 #    - family: Trajan Pro
 #      fonts:
 #        - asset: fonts/TrajanPro.ttf

@@ -81,7 +81,7 @@ class Styles {
   );
   static const TextStyle w400_60 = TextStyle(
     color: Color(0xFFF5F5F5),
-    fontSize: 60,
+    fontSize: 50,
     fontFamily: 'Dorsa',
     fontWeight: FontWeight.w400,
     height: 0,

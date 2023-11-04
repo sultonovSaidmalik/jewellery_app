@@ -55,16 +55,16 @@ class _HomeScreenState extends State<HomeScreen>  with HomeMixin{
                         children: [
                           Stack(
                             children: [
-                              const Padding(
-                                padding: EdgeInsets.only(left: 85),
-                                child: Image(
-                                  image: AssetImage(
-                                    "assets/images/img_ic.png",
-                                  ),
-                                  height: 20,
-                                  width: 20,
-                                ),
-                              ),
+                              // const Padding(
+                              //   padding: EdgeInsets.only(left: 55),
+                              //   child: Image(
+                              //     image: AssetImage(
+                              //       "assets/images/img_ic.png",
+                              //     ),
+                              //     height: 20,
+                              //     width: 20,
+                              //   ),
+                              // ),
                               Text(
                                 context.l10n.eliteDiamonds,
                                 style: Styles.w400_60,
