@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jewellery_app/src/common/constants/text_style.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/common/models/product_model.dart';
 import '../../../common/models/cart_item_model.dart';
 import '../../card_screen/bloc/cart_bloc.dart';
@@ -60,7 +61,7 @@ class WidgetsProductDescription extends StatelessWidget {
               children: [
                 /// Price
                 Text(
-                  "${product.productPrice} so'm",
+                  "${product.productPrice} ${context.l10n.som}",
                   style: Styles.w700_20,
                 ),
                 BlocBuilder<CartBloc, CartState>(
