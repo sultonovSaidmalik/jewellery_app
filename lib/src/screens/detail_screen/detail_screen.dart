@@ -67,6 +67,7 @@ class _DetailScreenState extends State<DetailScreen>
                                     placeholder: (context, url) => const Icon(
                                       Icons.image,
                                       color: Colors.grey,
+                                      size: 80,
                                     ),
                                   ),
                                 ),
