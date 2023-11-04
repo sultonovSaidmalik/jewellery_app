@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jewellery_app/src/common/constants/strings.dart';
 import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/common/utils/utils.dart';
 import 'bloc/favorite_bloc.dart';
