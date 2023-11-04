@@ -60,9 +60,11 @@ class WidgetsProductDescription extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 /// Price
-                Text(
-                  "${product.productPrice} ${context.l10n.som}",
-                  style: Styles.w700_20,
+                Flexible(
+                  child: Text(
+                    "${product.productPrice} ${context.l10n.som}",
+                    style: Styles.w700_20,
+                  ),
                 ),
                 BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) {
