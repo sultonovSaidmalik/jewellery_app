@@ -64,12 +64,11 @@ class ProductCountButton extends StatelessWidget {
               icon: const Icon(
                 Icons.remove,
                 color: Colors.white,
-                size: 35,
+                size: 30,
               ),
             ),
-            Container(
-              height: 26,
-              width: 26,
+            DecoratedBox(
+
               decoration: const BoxDecoration(
                   shape: BoxShape.circle, color: Colors.black),
               child: Center(
@@ -87,7 +86,7 @@ class ProductCountButton extends StatelessWidget {
               icon: const Icon(
                 Icons.add,
                 color: Colors.white,
-                size: 35,
+                size: 30,
 
               ),
             ),
