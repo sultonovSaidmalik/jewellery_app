@@ -1,6 +1,8 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:circle_flags/circle_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
+import 'package:jewellery_app/src/common/ext/context_ext.dart';
 
 import '../../../app_options.dart';
 import '../constants/strings.dart';
@@ -9,21 +11,53 @@ import '../service/local_dara_service.dart';
 class AppUtils {
   AppUtils._();
 
-  static void msg(BuildContext context, String message,
-      {Color color = Colors.green}) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        dismissDirection: DismissDirection.vertical,
-        content: Text(message),
-        backgroundColor: color,
-        behavior: SnackBarBehavior.floating,
-        margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height - 150,
-          left: 10,
-          right: 10,
-        ),
-      ),
-    );
+  static void msg(BuildContext context, String message , [void Function()? baskButton]) {
+    AwesomeDialog(
+      context: context,
+      animType: AnimType.scale,
+      dialogType: DialogType.success,
+      body:  Center(child: Text(message,
+        style: const TextStyle(fontStyle: FontStyle.normal),
+      ),),
+      title: 'This is Ignored',
+      desc:   'This is also Ignored',
+      btnOkOnPress: baskButton,
+    ).show();
+      // SnackBar(
+      //   dismissDirection: DismissDirection.vertical,
+      //   content: Text(message),
+      //   backgroundColor: color,
+      //   behavior: SnackBarBehavior.floating,
+      //   margin: EdgeInsets.only(
+      //     bottom: MediaQuery.of(context).size.height - 150,
+      //     left: 10,
+      //     right: 10,
+      //   ),
+      // ),
+  }
+  static void msgWarning(BuildContext context, String message , [void Function()? baskButton]) {
+    AwesomeDialog(
+      context: context,
+      animType: AnimType.scale,
+      dialogType: DialogType.warning,
+      body:  Center(child: Text(message,
+        style: const TextStyle(fontStyle: FontStyle.normal),
+      ),),
+      title: 'This is Ignored',
+      desc:   'This is also Ignored',
+      btnOkOnPress: baskButton,
+    ).show();
+      // SnackBar(
+      //   dismissDirection: DismissDirection.vertical,
+      //   content: Text(message),
+      //   backgroundColor: color,
+      //   behavior: SnackBarBehavior.floating,
+      //   margin: EdgeInsets.only(
+      //     bottom: MediaQuery.of(context).size.height - 150,
+      //     left: 10,
+      //     right: 10,
+      //   ),
+      // ),
   }
 
   static Future<bool> share({

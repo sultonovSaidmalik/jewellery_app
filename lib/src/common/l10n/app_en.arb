@@ -56,5 +56,7 @@
    "write" : "Write down your name and number so that our admin can contact you.",
    "connect" : "Not Connection...",
    "after" : "After you enter your ``Name'' and ``Telephone Number'', you will be given the right to place an order.\nThis information will only be used to contact you.",
-   "signUp" : "Sign up"
-   }
+   "signUp" : "Sign up",
+   "successOrder": "Your order has been accepted successfully. Will contact you soon!"
+
+}

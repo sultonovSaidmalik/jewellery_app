@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:jewellery_app/src/common/ext/context_ext.dart';
 import 'package:jewellery_app/src/common/service/local_dara_service.dart';
 import 'package:jewellery_app/src/common/utils/utils.dart';
+import 'package:jewellery_app/src/screens/home_screen/home_screen.dart';
+import 'package:jewellery_app/src/screens/main_screen/main_screen.dart';
 import 'package:jewellery_app/src/screens/mixin/connectivity_mixin.dart';
 import '../../common/constants/app_router.dart';
 import '../../common/constants/strings.dart';
@@ -72,8 +74,8 @@ class _IdentificationScreenState extends State<IdentificationScreen>
                           const Spacer(),
 
                           /// Text
-                           Text(
-                           context.l10n.after,
+                          Text(
+                            context.l10n.after,
                             style: Styles.w400_15,
                           ),
                         ],
@@ -116,6 +118,15 @@ class _IdentificationScreenState extends State<IdentificationScreen>
                                     AppUtils.msg(
                                       context,
                                       context.l10n.successful,
+                                      () {
+                                        Navigator.pushAndRemoveUntil(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const MainScreen(),
+                                            ),
+                                            (route) => true);
+                                      },
                                     );
                                     AppUtils.msg(
                                       context,

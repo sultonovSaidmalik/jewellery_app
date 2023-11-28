@@ -11,6 +11,7 @@ mixin HomeMixin on State<HomeScreen> {
     CategoryLang(uz: "Uzuk", en: "Ring", ru: "Кольцо"),
     CategoryLang(uz: "Marjon", en: "Necklace", ru: "Ожерелье"),
     CategoryLang(uz: "Bilaguzuk", en: "Bracelet", ru: "Браслет"),
+    CategoryLang(uz: "To'plam", en: "Collection", ru: "Комплекты"),
   ];
   List<CategoryLang> selectedCategoryLang = [
     CategoryLang(uz: "Hammasi", en: "All", ru: "Все"),
